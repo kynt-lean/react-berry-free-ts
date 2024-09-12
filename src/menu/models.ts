@@ -1,4 +1,4 @@
-import { ChipTypeMap } from '@mui/material/Chip';
+import { ChipOwnProps } from '@mui/material/Chip';
 import { TablerIconsProps } from '@tabler/icons-react';
 
 export interface MenuItems {
@@ -17,5 +17,13 @@ export interface MenuItem {
   external?: boolean;
   target?: boolean;
   disabled?: boolean;
-  chip?: ChipTypeMap['props'];
+  chip?: ChipOwnProps;
+}
+
+export interface MenuState {
+  opened?: boolean;
+  isOpen?: string[];
+  defaultId?: string;
+  id?: string;
+  type?: string;
 }

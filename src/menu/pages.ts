@@ -1,6 +1,6 @@
 // assets
 import { IconKey } from '@tabler/icons-react';
-import { MenuItem } from './menu-item';
+import { MenuItem } from './models';
 // constant
 const icons = {
   IconKey

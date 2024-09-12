@@ -10,18 +10,18 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import { forwardRef, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
-import { BerryAppConfiguration } from '../../../../../config';
-import { MenuItem } from '../../../../../menu-items/menu-item';
+import { MenuItem, MenuState } from '../../../../../menu/models';
 import { MENU_OPEN, SET_MENU } from '../../../../../store/actions';
 import { RootState } from '../../../../../store/reducer';
-import { BerryTheme } from '../../../../../themes/theme';
+import { BerryTheme, BerryThemeCustomization } from '../../../../../themes/theme';
 
 // ==============================|| SIDEBAR MENU LIST ITEMS ||============================== //
 const NavItem = ({ item, level }: { item: MenuItem; level: number }) => {
   const theme = useTheme<BerryTheme>();
   const dispatch = useDispatch();
   const { pathname } = useLocation();
-  const customization = useSelector<RootState, BerryAppConfiguration>((state) => state.config);
+  const menu = useSelector<RootState, MenuState>((state) => state.menu);
+  const customization = useSelector<RootState, BerryThemeCustomization>((state) => state.customization);
   const matchesSM = useMediaQuery(theme.breakpoints.down('lg'));
 
   const Icon = item.icon;
@@ -30,8 +30,8 @@ const NavItem = ({ item, level }: { item: MenuItem; level: number }) => {
   ) : (
     <FiberManualRecordIcon
       sx={{
-        width: (customization.isOpen || []).findIndex((id) => id === item?.id) > -1 ? 8 : 6,
-        height: (customization.isOpen || []).findIndex((id) => id === item?.id) > -1 ? 8 : 6
+        width: (menu.isOpen || []).findIndex((id) => id === item?.id) > -1 ? 8 : 6,
+        height: (menu.isOpen || []).findIndex((id) => id === item?.id) > -1 ? 8 : 6
       }}
       fontSize={level > 0 ? 'inherit' : 'medium'}
     />
@@ -77,13 +77,13 @@ const NavItem = ({ item, level }: { item: MenuItem; level: number }) => {
         py: level > 1 ? 1 : 1.25,
         pl: `${level * 24}px`
       }}
-      selected={(customization.isOpen || []).findIndex((id) => id === item.id) > -1}
+      selected={(menu.isOpen || []).findIndex((id) => id === item.id) > -1}
       onClick={() => itemHandler(item.id)}
     >
       <ListItemIcon sx={{ my: 'auto', minWidth: !item?.icon ? 18 : 36 }}>{itemIcon}</ListItemIcon>
       <ListItemText
         primary={
-          <Typography variant={(customization.isOpen || []).findIndex((id) => id === item.id) > -1 ? 'h5' : 'body1'} color="inherit">
+          <Typography variant={(menu.isOpen || []).findIndex((id) => id === item.id) > -1 ? 'h5' : 'body1'} color="inherit">
             {item.title}
           </Typography>
         }

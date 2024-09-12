@@ -1,5 +1,5 @@
 import dashboard from './dashboard';
-import { MenuItems } from './menu-item';
+import { MenuItems } from './models';
 import other from './other';
 import pages from './pages';
 import utilities from './utilities';

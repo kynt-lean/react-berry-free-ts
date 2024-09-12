@@ -2,7 +2,7 @@ import Divider from '@mui/material/Divider';
 import List from '@mui/material/List';
 import { useTheme } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
-import { MenuItem } from '../../../../../menu-items/menu-item';
+import { MenuItem } from '../../../../../menu/models';
 import { BerryTheme } from '../../../../../themes/theme';
 import NavCollapse from '../NavCollapse';
 import NavItem from '../NavItem';

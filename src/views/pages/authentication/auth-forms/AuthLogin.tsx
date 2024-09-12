@@ -29,7 +29,7 @@ import AnimateButton from '../../../../ui-component/extended/AnimateButton';
 const AuthLogin = ({ ...others }) => {
   const theme = useTheme<BerryTheme>();
   const matchDownSM = useMediaQuery(theme.breakpoints.down('md'));
-  const customization = useSelector<RootState, BerryThemeCustomization>((state) => state.config);
+  const customization = useSelector<RootState, BerryThemeCustomization>((state) => state.customization);
   const [checked, setChecked] = useState(true);
   const googleHandler = async () => {
     console.error('Login');

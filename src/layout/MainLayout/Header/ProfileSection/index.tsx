@@ -33,7 +33,7 @@ import UpgradePlanCard from './UpgradePlanCard';
 // ==============================|| PROFILE MENU ||============================== //
 const ProfileSection = () => {
   const theme = useTheme<BerryTheme>();
-  const customization = useSelector<RootState, BerryThemeCustomization>((state) => state.config);
+  const customization = useSelector<RootState, BerryThemeCustomization>((state) => state.customization);
   const navigate = useNavigate();
   const [sdm, setSdm] = useState(true);
   const [value, setValue] = useState('');

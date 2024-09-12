@@ -10,16 +10,15 @@ import { IconChevronDown, IconChevronUp } from '@tabler/icons-react';
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { BerryAppConfiguration } from '../../../../../config';
-import { MenuItem } from '../../../../../menu-items/menu-item';
+import { MenuItem } from '../../../../../menu/models';
 import { RootState } from '../../../../../store/reducer';
-import { BerryTheme } from '../../../../../themes/theme';
+import { BerryTheme, BerryThemeCustomization } from '../../../../../themes/theme';
 import NavItem from '../NavItem';
 
 // ==============================|| SIDEBAR MENU LIST COLLAPSE ITEMS ||============================== //
 const NavCollapse = ({ menu, level }: { menu: MenuItem; level: number }) => {
   const theme = useTheme<BerryTheme>();
-  const customization = useSelector<RootState, BerryAppConfiguration>((state) => state.config);
+  const customization = useSelector<RootState, BerryThemeCustomization>((state) => state.customization);
   const navigate = useNavigate();
 
   const [open, setOpen] = useState(false);

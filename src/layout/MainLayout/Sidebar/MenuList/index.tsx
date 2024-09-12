@@ -1,5 +1,5 @@
 import { Typography } from '@mui/material';
-import menuItems from '../../../../menu-items';
+import menuItems from '../../../../menu';
 import NavGroup from './NavGroup';
 
 // ==============================|| SIDEBAR MENU LIST ||============================== //

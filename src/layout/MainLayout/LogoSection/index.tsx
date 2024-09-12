@@ -8,10 +8,10 @@ import Logo from '../../../ui-component/Logo';
 
 // ==============================|| MAIN LOGO ||============================== //
 const LogoSection = () => {
-  const defaultId = useSelector<RootState, string | undefined>((state) => state.config.defaultId);
+  const defaultId = useSelector<RootState, string | undefined>((state) => state.menu.defaultId);
   const dispatch = useDispatch();
   return (
-    <ButtonBase disableRipple onClick={() => dispatch({ type: MENU_OPEN, id: defaultId })} component={Link} to={config.defaultPath!}>
+    <ButtonBase disableRipple onClick={() => dispatch({ type: MENU_OPEN, id: defaultId })} component={Link} to={config.defaultPath}>
       <Logo />
     </ButtonBase>
   );

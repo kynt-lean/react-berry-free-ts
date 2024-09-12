@@ -9,7 +9,7 @@ import themes from './themes';
 import { BerryThemeCustomization } from './themes/theme';
 
 const App = () => {
-  const customization = useSelector<RootState, BerryThemeCustomization>((state) => state.config);
+  const customization = useSelector<RootState, BerryThemeCustomization>((state) => state.customization);
   return (
     <StyledEngineProvider injectFirst>
       <ThemeProvider theme={themes(customization)}>

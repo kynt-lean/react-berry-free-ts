@@ -29,7 +29,7 @@ function valueText(value: string | number) {
 const Customization = () => {
   const theme = useTheme();
   const dispatch = useDispatch();
-  const customization = useSelector<RootState, BerryThemeCustomization>((state) => state.config);
+  const customization = useSelector<RootState, BerryThemeCustomization>((state) => state.customization);
   // drawer on/off
   const [open, setOpen] = useState(false);
   const handleToggle = () => {

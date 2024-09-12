@@ -1,7 +1,15 @@
 import { useMemo } from 'react';
 import useSWR, { mutate } from 'swr';
 
-const initialState = {
+interface MenuMaster {
+  openedItem: string;
+  openedComponent: string;
+  openedHorizontalItem: null;
+  isDashboardDrawerOpened: boolean;
+  isComponentDrawerOpened: boolean;
+}
+
+const initialState: MenuMaster = {
   openedItem: 'dashboard',
   openedComponent: 'buttons',
   openedHorizontalItem: null,
@@ -31,22 +39,22 @@ export function useGetMenuMaster() {
   return memoizedValue;
 }
 
-export function handlerDrawerOpen(isDashboardDrawerOpened) {
+export function handlerDrawerOpen(isDashboardDrawerOpened: boolean) {
   // to update local state based on key
   mutate(
     endpoints.key + endpoints.master,
-    (currentMenuMaster) => {
+    (currentMenuMaster: any) => {
       return { ...currentMenuMaster, isDashboardDrawerOpened };
     },
     false
   );
 }
 
-export function handlerActiveItem(openedItem) {
+export function handlerActiveItem(openedItem: string) {
   // to update local state based on key
   mutate(
     endpoints.key + endpoints.master,
-    (currentMenuMaster) => {
+    (currentMenuMaster: any) => {
       return { ...currentMenuMaster, openedItem };
     },
     false

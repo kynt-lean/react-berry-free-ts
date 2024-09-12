@@ -31,7 +31,7 @@ import { strengthColor, strengthIndicator } from '../../../../utils/password-str
 const AuthRegister = ({ ...others }) => {
   const theme = useTheme<BerryTheme>();
   const matchDownSM = useMediaQuery(theme.breakpoints.down('md'));
-  const customization = useSelector<RootState, BerryThemeCustomization>((state) => state.config);
+  const customization = useSelector<RootState, BerryThemeCustomization>((state) => state.customization);
   const [showPassword, setShowPassword] = useState(false);
   const [checked, setChecked] = useState(true);
 

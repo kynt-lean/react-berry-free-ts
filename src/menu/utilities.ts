@@ -1,6 +1,6 @@
 // assets
 import { IconPalette, IconShadow, IconTypography, IconWindmill } from '@tabler/icons-react';
-import { MenuItem } from './menu-item';
+import { MenuItem } from './models';
 // constant
 const icons = {
   IconTypography,

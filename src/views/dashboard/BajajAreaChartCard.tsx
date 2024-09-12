@@ -14,7 +14,7 @@ import chartData from './chart-data/bajaj-area-chart';
 const BajajAreaChartCard = () => {
   const theme = useTheme<BerryTheme>();
   const orangeDark = theme.palette.secondary[800];
-  const customization = useSelector<RootState, BerryThemeCustomization>((state) => state.config);
+  const customization = useSelector<RootState, BerryThemeCustomization>((state) => state.customization);
   const { navType } = customization;
 
   useEffect(() => {

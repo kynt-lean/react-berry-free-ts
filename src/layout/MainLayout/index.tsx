@@ -55,7 +55,7 @@ const MainLayout = () => {
   const theme = useTheme<BerryTheme>();
   const matchDownMd = useMediaQuery(theme.breakpoints.down('md'));
   // Handle left drawer
-  const leftDrawerOpened = useSelector<RootState, boolean>((state) => Boolean(state.config.opened));
+  const leftDrawerOpened = useSelector<RootState, boolean>((state) => Boolean(state.menu.opened));
   const dispatch = useDispatch();
   const handleLeftDrawerToggle = () => {
     dispatch({ type: SET_MENU, opened: !leftDrawerOpened });

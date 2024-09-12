@@ -12,7 +12,7 @@ import { IconChevronRight, IconTallymark1 } from '@tabler/icons-react';
 import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import navigation from '../../menu-items';
+import navigation from '../../menu';
 
 // ==============================|| BREADCRUMBS TITLE ||============================== //
 interface BTitleProps {

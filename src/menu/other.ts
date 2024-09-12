@@ -1,6 +1,6 @@
 // assets
 import { IconBrandChrome, IconHelp } from '@tabler/icons-react';
-import { MenuItem } from './menu-item';
+import { MenuItem } from './models';
 // constant
 const icons = { IconBrandChrome, IconHelp };
 // ==============================|| SAMPLE PAGE & DOCUMENTATION MENU ITEMS ||============================== //

@@ -11,7 +11,7 @@ type CardSecondaryActionProps = {
   title?: string;
 };
 
-const CardSecondaryAction: React.FC<CardSecondaryActionProps> = ({ title, link, icon }) => {
+export const CardSecondaryAction: React.FC<CardSecondaryActionProps> = ({ title, link, icon }) => {
   const theme = useTheme<BerryTheme>();
   return (
     <Tooltip title={title || 'Reference'} placement="left">
@@ -48,5 +48,3 @@ const CardSecondaryAction: React.FC<CardSecondaryActionProps> = ({ title, link, 
     </Tooltip>
   );
 };
-
-export default CardSecondaryAction;

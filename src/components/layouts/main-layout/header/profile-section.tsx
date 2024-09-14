@@ -1,3 +1,4 @@
+import User1 from '@/assets/images/users/user-round.svg';
 import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
@@ -23,7 +24,6 @@ import { useEffect, useRef, useState } from 'react';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import User1 from '../../../../assets/images/users/user-round.svg';
 import { RootState } from '../../../../store/reducer';
 import { BerryTheme, BerryThemeCustomization } from '../../../../themes/theme';
 import { MainCard } from '../../../ui/cards/main-card';
@@ -39,10 +39,8 @@ export const ProfileSection = () => {
   const [notification, setNotification] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState(-1);
   const [open, setOpen] = useState(false);
-  const anchorRef = useRef<HTMLAnchorElement>(null);
-  const handleLogout = async () => {
-    console.log('Logout');
-  };
+  const anchorRef = useRef<HTMLDivElement>(null);
+  const handleLogout = async () => console.log('Logout');
   const handleClose = (event: MouseEvent | TouchEvent | React.MouseEvent) => {
     if (event.target && anchorRef.current && anchorRef.current.contains(event.target as Node)) {
       return;
@@ -69,6 +67,7 @@ export const ProfileSection = () => {
   return (
     <>
       <Chip
+        ref={anchorRef}
         sx={{
           height: '48px',
           alignItems: 'center',
@@ -90,13 +89,13 @@ export const ProfileSection = () => {
         }}
         icon={
           <Avatar
+            ref={anchorRef}
             src={User1}
             sx={{
               ...theme.typography.mediumAvatar,
               margin: '8px 0 8px 8px !important',
               cursor: 'pointer'
             }}
-            // ref={anchorRef}
             aria-controls={open ? 'menu-list-grow' : undefined}
             aria-haspopup="true"
             color="inherit"
@@ -104,7 +103,6 @@ export const ProfileSection = () => {
         }
         label={<IconSettings stroke={1.5} size="1.5rem" color={theme.palette.primary.main} />}
         variant="outlined"
-        // ref={anchorRef}
         aria-controls={open ? 'menu-list-grow' : undefined}
         aria-haspopup="true"
         onClick={handleToggle}

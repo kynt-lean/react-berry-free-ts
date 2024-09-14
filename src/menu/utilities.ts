@@ -1,15 +1,7 @@
-// assets
-import { IconPalette, IconShadow, IconTypography, IconWindmill } from '@tabler/icons-react';
+import { IconPalette, IconShadow, IconTypography } from '@tabler/icons-react';
 import { MenuItem } from './models';
-// constant
-const icons = {
-  IconTypography,
-  IconPalette,
-  IconShadow,
-  IconWindmill
-};
-// ==============================|| UTILITIES MENU ITEMS ||============================== //
-const utilities: MenuItem = {
+
+export const utilitiesItems: MenuItem = {
   id: 'utilities',
   title: 'Utilities',
   type: 'group',
@@ -18,26 +10,25 @@ const utilities: MenuItem = {
       id: 'util-typography',
       title: 'Typography',
       type: 'item',
-      url: '/utils/util-typography',
-      icon: icons.IconTypography,
+      url: '/utils/typography',
+      icon: IconTypography,
       breadcrumbs: false
     },
     {
       id: 'util-color',
       title: 'Color',
       type: 'item',
-      url: '/utils/util-color',
-      icon: icons.IconPalette,
+      url: '/utils/color',
+      icon: IconPalette,
       breadcrumbs: false
     },
     {
       id: 'util-shadow',
       title: 'Shadow',
       type: 'item',
-      url: '/utils/util-shadow',
-      icon: icons.IconShadow,
+      url: '/utils/shadow',
+      icon: IconShadow,
       breadcrumbs: false
     }
   ]
 };
-export default utilities;

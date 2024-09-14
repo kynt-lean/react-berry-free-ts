@@ -1,9 +1,12 @@
 import { Typography } from '@mui/material';
-import menuItems from '../../../../../menu';
+import { useSelector } from 'react-redux';
+import { MenuItems } from '../../../../../menu/models';
+import { RootState } from '../../../../../store/reducer';
 import { NavGroup } from './nav-group';
 
 export const MenuList = () => {
-  const navItems = menuItems.items.map((item) => {
+  const menuItems = useSelector<RootState, MenuItems>((state) => state.menu.items);
+  const navItems = menuItems.map((item) => {
     switch (item.type) {
       case 'group':
         return <NavGroup key={item.id} item={item} />;

@@ -10,8 +10,8 @@ import { useState } from 'react';
 import Chart, { Props as ApexChartProps } from 'react-apexcharts';
 import { MainCard } from '../../../components/ui/cards/main-card';
 import { BerryTheme } from '../../../themes/theme';
-import ChartDataMonth from '../chart-data/total-order-month-line-chart';
-import ChartDataYear from '../chart-data/total-order-year-line-chart';
+import { chartData as chartDataMonth } from '../chart-data/total-order-month-line-chart';
+import { chartData as chartDataYear } from '../chart-data/total-order-year-line-chart';
 import { SkeletonEarningCard } from './skeleton-earning-card';
 
 type TotalOrderLineChartCardProps = {
@@ -161,7 +161,7 @@ export const TotalOrderLineChartCard: React.FC<TotalOrderLineChartCardProps> = (
                     </Grid>
                   </Grid>
                   <Grid item xs={6}>
-                    {timeValue ? <Chart {...(ChartDataMonth as ApexChartProps)} /> : <Chart {...(ChartDataYear as ApexChartProps)} />}
+                    {timeValue ? <Chart {...(chartDataMonth as ApexChartProps)} /> : <Chart {...(chartDataYear as ApexChartProps)} />}
                   </Grid>
                 </Grid>
               </Grid>

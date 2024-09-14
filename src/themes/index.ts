@@ -1,11 +1,11 @@
+import color from '@/assets/scss/_themes-vars.module.scss';
 import { createTheme, ThemeOptions } from '@mui/material/styles';
-import color from '../assets/scss/_themes-vars.module.scss';
-import componentStyleOverrides from './component';
-import themePalette from './palette';
+import { overrideComponentStyle } from './component';
+import { createThemePalette } from './palette';
 import { BerryTheme, BerryThemeCustomization, BerryThemeOptions } from './theme';
-import themeTypography from './typography';
+import { createThemeTypography } from './typography';
 
-export const theme = (customization: BerryThemeCustomization): BerryTheme => {
+export const createBerryTheme = (customization: BerryThemeCustomization): BerryTheme => {
   const themeOption: BerryThemeOptions = {
     colors: color,
     heading: color.grey900,
@@ -22,7 +22,7 @@ export const theme = (customization: BerryThemeCustomization): BerryTheme => {
   };
   const themeOptions: ThemeOptions = {
     direction: 'ltr',
-    palette: themePalette(themeOption),
+    palette: createThemePalette(themeOption),
     mixins: {
       toolbar: {
         minHeight: '48px',
@@ -32,11 +32,9 @@ export const theme = (customization: BerryThemeCustomization): BerryTheme => {
         }
       }
     },
-    typography: themeTypography(themeOption)
+    typography: createThemeTypography(themeOption)
   };
   const themes = createTheme(themeOptions) as BerryTheme;
-  themes.components = componentStyleOverrides(themeOption);
+  themes.components = overrideComponentStyle(themeOption);
   return themes;
 };
-
-export default theme;

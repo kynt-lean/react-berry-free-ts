@@ -1,3 +1,4 @@
+import Google from '@/assets/images/icons/social-google.svg';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import Box from '@mui/material/Box';
@@ -21,7 +22,6 @@ import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import * as Yup from 'yup';
-import Google from '../../assets/images/icons/social-google.svg';
 import { AnimateButton } from '../../components/ui/mui-extensions/animate-button';
 import { RootState } from '../../store/reducer';
 import { BerryTheme, BerryThemeCustomization } from '../../themes/theme';

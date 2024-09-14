@@ -1,3 +1,4 @@
+import EarningIcon from '@/assets/images/icons/earning.svg';
 import ArchiveTwoToneIcon from '@mui/icons-material/ArchiveOutlined';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import FileCopyTwoToneIcon from '@mui/icons-material/FileCopyOutlined';
@@ -12,7 +13,6 @@ import MenuItem from '@mui/material/MenuItem';
 import { useTheme } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 import { useState } from 'react';
-import EarningIcon from '../../../assets/images/icons/earning.svg';
 import { MainCard } from '../../../components/ui/cards/main-card';
 import { BerryTheme } from '../../../themes/theme';
 import { SkeletonEarningCard } from './skeleton-earning-card';

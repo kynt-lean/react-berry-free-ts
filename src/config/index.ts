@@ -2,8 +2,6 @@ export interface BerryAppConfiguration {
   defaultPath: string;
 }
 
-const config: BerryAppConfiguration = {
+export const config: BerryAppConfiguration = {
   defaultPath: '/dashboard/default'
 };
-
-export default config;

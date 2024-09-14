@@ -1,11 +1,7 @@
-import dashboard from './dashboard';
+import { authItems } from './auth';
+import { dashboardItems } from './dashboard';
 import { MenuItems } from './models';
-import other from './other';
-import pages from './pages';
-import utilities from './utilities';
+import { otherItems } from './other';
+import { utilitiesItems } from './utilities';
 
-// ==============================|| MENU ITEMS ||============================== //
-const menuItems: MenuItems = {
-  items: [dashboard, pages, utilities, other]
-};
-export default menuItems;
+export const menuItems: MenuItems = [dashboardItems, authItems, utilitiesItems, otherItems];

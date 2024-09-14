@@ -1,10 +1,7 @@
 import { ChipOwnProps } from '@mui/material/Chip';
 import { TablerIconsProps } from '@tabler/icons-react';
 
-export interface MenuItems {
-  items: MenuItem[];
-}
-
+export type MenuItems = MenuItem[];
 export interface MenuItem {
   id: string;
   type: string;
@@ -26,4 +23,5 @@ export interface MenuState {
   defaultId?: string;
   id?: string;
   type?: string;
+  items: MenuItems;
 }

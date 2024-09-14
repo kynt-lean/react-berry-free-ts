@@ -1,4 +1,5 @@
 // material-ui
+import User1 from '@/assets/images/users/user-round.svg';
 import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
@@ -16,7 +17,6 @@ import { useTheme } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 import { IconBrandTelegram, IconBuildingStore, IconMailbox, IconPhoto } from '@tabler/icons-react';
 import { ReactNode } from 'react';
-import User1 from '../../../../../assets/images/users/user-round.svg';
 import { BerryTheme } from '../../../../../themes/theme';
 import { Chip } from '../../../../ui/mui-extensions/chip';
 

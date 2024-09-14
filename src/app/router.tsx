@@ -14,7 +14,7 @@ export const createAppRouter = (queryClient: QueryClient) =>
           path: '/dashboard',
           children: [
             {
-              path: '/default',
+              path: 'default',
               lazy: async () => {
                 const { Dashboard } = await import('./pages/dashboard');
                 return { Component: Dashboard };
@@ -26,21 +26,21 @@ export const createAppRouter = (queryClient: QueryClient) =>
           path: '/utils',
           children: [
             {
-              path: '/typography',
+              path: 'typography',
               lazy: async () => {
                 const { UtilsTypography } = await import('./pages/utilities/typography');
                 return { Component: UtilsTypography };
               }
             },
             {
-              path: '/color',
+              path: 'color',
               lazy: async () => {
                 const { UtilsColor } = await import('./pages/utilities/color');
                 return { Component: UtilsColor };
               }
             },
             {
-              path: '/shadow',
+              path: 'shadow',
               lazy: async () => {
                 const { UtilsShadow } = await import('./pages/utilities/shadow');
                 return { Component: UtilsShadow };
@@ -49,10 +49,10 @@ export const createAppRouter = (queryClient: QueryClient) =>
           ]
         },
         {
-          path: '/samples',
+          path: '/sample',
           children: [
             {
-              path: '/card',
+              path: 'card',
               lazy: async () => {
                 const { SampleCard } = await import('./pages/sample/sample-card');
                 return { Component: SampleCard };
@@ -67,14 +67,14 @@ export const createAppRouter = (queryClient: QueryClient) =>
       element: <AuthLayout />,
       children: [
         {
-          path: '/register',
+          path: 'register',
           lazy: async () => {
             const { Register } = await import('./pages/auth/register');
             return { Component: Register };
           }
         },
         {
-          path: '/login',
+          path: 'login',
           lazy: async () => {
             const { Login } = await import('./pages/auth/login');
             return { Component: Login };

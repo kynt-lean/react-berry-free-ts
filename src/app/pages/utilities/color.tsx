@@ -3,7 +3,7 @@ import Card from '@mui/material/Card';
 import Grid from '@mui/material/Grid';
 import { useTheme } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
-import CardSecondaryAction from '../../../components/ui/cards/card-secondary-action';
+import { CardSecondaryAction } from '../../../components/ui/cards/card-secondary-action';
 import { MainCard } from '../../../components/ui/cards/main-card';
 import { SubCard } from '../../../components/ui/cards/sub-card';
 import { gridSpacing } from '../../../store/constant';

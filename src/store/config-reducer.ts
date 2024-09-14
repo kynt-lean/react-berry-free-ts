@@ -1,7 +1,5 @@
-import config, { BerryAppConfiguration } from '../config';
+import { BerryAppConfiguration, config } from '../config';
 
-const configReducer = (state = config, action: any): BerryAppConfiguration => {
+export const configReducer = (state = config, action: any): BerryAppConfiguration => {
   return state;
 };
-
-export default configReducer;

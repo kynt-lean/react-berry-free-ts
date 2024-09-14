@@ -1,13 +1,15 @@
+import { menuItems } from '../menu';
 import { MenuState } from '../menu/models';
 import { MENU_OPEN, MenuAction, SET_MENU } from './actions';
 
 const initialState: MenuState = {
   opened: true,
   isOpen: [],
-  defaultId: 'default'
+  defaultId: 'default',
+  items: menuItems
 };
 
-const menuReducer = (state = initialState, action: MenuAction): MenuState => {
+export const menuReducer = (state = initialState, action: MenuAction): MenuState => {
   let id;
   switch (action.type) {
     case MENU_OPEN:
@@ -25,5 +27,3 @@ const menuReducer = (state = initialState, action: MenuAction): MenuState => {
       return state;
   }
 };
-
-export default menuReducer;

@@ -1,5 +1,5 @@
 import Axios, { InternalAxiosRequestConfig } from 'axios';
-import { useNotifications } from '../components/ui/notifications';
+import { useNotifications } from '../hooks/use-notifications';
 
 function authRequestInterceptor(config: InternalAxiosRequestConfig) {
   if (config.headers) {

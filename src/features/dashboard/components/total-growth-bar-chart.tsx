@@ -9,7 +9,7 @@ import Chart, { Props as ApexChartProps } from 'react-apexcharts';
 import { MainCard } from '../../../components/ui/cards/main-card';
 import { gridSpacing } from '../../../store/constant';
 import { BerryTheme } from '../../../themes/theme';
-import chartData from '../chart-data/total-growth-bar-chart';
+import { chartData } from '../chart-data/total-growth-bar-chart';
 import { SkeletonTotalGrowthBarChart } from './skeleton-total-growth-bar-chart';
 
 const status = [

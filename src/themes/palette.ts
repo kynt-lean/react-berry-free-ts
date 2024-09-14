@@ -1,6 +1,6 @@
 import { BerryPaletteOptions, BerryThemeOptions } from './theme';
 
-export default function themePalette(theme: BerryThemeOptions): BerryPaletteOptions {
+export function createThemePalette(theme: BerryThemeOptions): BerryPaletteOptions {
   return {
     mode: theme?.customization?.mode,
     common: {

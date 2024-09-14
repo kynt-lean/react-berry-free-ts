@@ -1,11 +1,11 @@
 import { ComponentType, Suspense } from 'react';
-import { Loader } from './loader';
+import { Loader } from '../loader';
 
-export type LoadableProps<T> = T extends ComponentType<infer P> ? P : never;
+export type LazyLoadProps<T> = T extends ComponentType<infer P> ? P : never;
 
-export const Loadable =
+export const LazyLoad =
   <T extends ComponentType<any>>(Component: T) =>
-  (props: LoadableProps<T>) => (
+  (props: LazyLoadProps<T>) => (
     <Suspense fallback={<Loader />}>
       <Component {...props} />
     </Suspense>

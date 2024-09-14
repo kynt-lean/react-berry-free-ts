@@ -12,8 +12,7 @@
 // import ProfileSection from '../ProfileSection';
 // import SearchSection from '../SearchSection';
 
-// // ==============================|| HEADER CONTENT - MOBILE ||============================== //
-// const MobileSection = () => {
+// export const MobileSection = () => {
 //   const theme = useTheme();
 //   const [open, setOpen] = useState(false);
 //   const anchorRef = useRef(null);
@@ -90,5 +89,3 @@
 //     </>
 //   );
 // };
-
-// export default MobileSection;

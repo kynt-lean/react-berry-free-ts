@@ -1,6 +1,6 @@
 import { BerryThemeOptions } from './theme';
 
-export default function componentStyleOverrides(theme: BerryThemeOptions) {
+export function overrideComponentStyle(theme: BerryThemeOptions) {
   const bgColor = theme.colors?.grey50;
   return {
     MuiButton: {

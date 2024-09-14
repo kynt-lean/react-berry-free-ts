@@ -8,7 +8,7 @@ import Chart, { Props as ApexChartProps } from 'react-apexcharts';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../../store/reducer';
 import { BerryTheme, BerryThemeCustomization } from '../../../themes/theme';
-import chartData from '../chart-data/bajaj-area-chart';
+import { chartData } from '../chart-data/bajaj-area-chart';
 
 export const BajajAreaChartCard = () => {
   const theme = useTheme<BerryTheme>();

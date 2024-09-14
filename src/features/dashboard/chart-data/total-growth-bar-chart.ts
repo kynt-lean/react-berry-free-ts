@@ -1,4 +1,4 @@
-const chartData = {
+export const chartData = {
   height: 480,
   type: 'bar',
   options: {
@@ -81,4 +81,3 @@ const chartData = {
     }
   ]
 };
-export default chartData;

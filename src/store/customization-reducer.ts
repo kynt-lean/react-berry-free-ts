@@ -6,7 +6,7 @@ const initialState: BerryThemeCustomization = {
   borderRadius: 12
 };
 
-const customizationReducer = (state = initialState, action: CustomizationAction): BerryThemeCustomization => {
+export const customizationReducer = (state = initialState, action: CustomizationAction): BerryThemeCustomization => {
   switch (action.type) {
     case SET_FONT_FAMILY:
       return {
@@ -22,5 +22,3 @@ const customizationReducer = (state = initialState, action: CustomizationAction)
       return state;
   }
 };
-
-export default customizationReducer;

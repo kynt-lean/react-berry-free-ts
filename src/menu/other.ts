@@ -1,19 +1,16 @@
-// assets
 import { IconBrandChrome, IconHelp } from '@tabler/icons-react';
 import { MenuItem } from './models';
-// constant
-const icons = { IconBrandChrome, IconHelp };
-// ==============================|| SAMPLE PAGE & DOCUMENTATION MENU ITEMS ||============================== //
-const other: MenuItem = {
+
+export const otherItems: MenuItem = {
   id: 'sample-docs-roadmap',
   type: 'group',
   children: [
     {
-      id: 'sample-page',
+      id: 'sample-card',
       title: 'Sample Page',
       type: 'item',
-      url: '/sample-page',
-      icon: icons.IconBrandChrome,
+      url: '/sample/card',
+      icon: IconBrandChrome,
       breadcrumbs: false
     },
     {
@@ -21,10 +18,9 @@ const other: MenuItem = {
       title: 'Documentation',
       type: 'item',
       url: 'https://codedthemes.gitbook.io/berry/',
-      icon: icons.IconHelp,
+      icon: IconHelp,
       external: true,
       target: true
     }
   ]
 };
-export default other;

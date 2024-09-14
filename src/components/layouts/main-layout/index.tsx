@@ -55,9 +55,7 @@ export const MainLayout = () => {
   const matchDownMd = useMediaQuery(theme.breakpoints.down('md'));
   const leftDrawerOpened = useSelector<RootState, boolean>((state) => Boolean(state.menu.opened));
   const dispatch = useDispatch();
-  const handleLeftDrawerToggle = () => {
-    dispatch({ type: SET_MENU, opened: !leftDrawerOpened });
-  };
+  const handleLeftDrawerToggle = () => dispatch({ type: SET_MENU, opened: !leftDrawerOpened });
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
@@ -83,6 +81,7 @@ export const MainLayout = () => {
         <Breadcrumbs separator={IconChevronRight} icon title rightAlign />
         <Outlet />
       </Main>
+
       <UICustomization />
     </Box>
   );

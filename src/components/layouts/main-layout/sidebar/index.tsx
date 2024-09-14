@@ -8,7 +8,7 @@ import PerfectScrollbar from 'react-perfect-scrollbar';
 import { drawerWidth } from '../../../../store/constant';
 import { BerryTheme } from '../../../../themes/theme';
 import { Chip } from '../../../ui/mui-extensions/chip';
-import { LogoSection } from '../logo-section';
+import { LogoSection } from '../logo/logo-section';
 import { MenuCard } from './menu-card';
 import { MenuList } from './menu-list';
 

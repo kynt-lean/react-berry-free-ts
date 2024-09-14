@@ -1,10 +1,7 @@
-// assets
 import { IconDashboard } from '@tabler/icons-react';
 import { MenuItem } from './models';
-// constant
-const icons = { IconDashboard };
-// ==============================|| DASHBOARD MENU ITEMS ||============================== //
-const dashboard: MenuItem = {
+
+export const dashboardItems: MenuItem = {
   id: 'dashboard',
   title: 'Dashboard',
   type: 'group',
@@ -14,9 +11,8 @@ const dashboard: MenuItem = {
       title: 'Dashboard',
       type: 'item',
       url: '/dashboard/default',
-      icon: icons.IconDashboard,
+      icon: IconDashboard,
       breadcrumbs: false
     }
   ]
 };
-export default dashboard;

@@ -1,6 +1,6 @@
 import { BerryThemeOptions, BerryTypographyOptions } from './theme';
 
-export default function themeTypography(theme: BerryThemeOptions): BerryTypographyOptions {
+export function createThemeTypography(theme: BerryThemeOptions): BerryTypographyOptions {
   return {
     fontFamily: theme?.customization?.fontFamily,
     h6: {

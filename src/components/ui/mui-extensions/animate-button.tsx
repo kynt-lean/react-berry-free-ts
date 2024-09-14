@@ -98,7 +98,7 @@ export const AnimateButton = forwardRef<HTMLDivElement, AnimateButtonProps>(
 AnimateButton.propTypes = {
   children: PropTypes.node,
   offset: PropTypes.number,
-  type: PropTypes.oneOf<AnimateButtonType>(['slide', 'scale', 'rotate']).isRequired,
+  type: PropTypes.oneOf<AnimateButtonType>(['slide', 'scale', 'rotate']),
   direction: PropTypes.oneOf(['up', 'down', 'left', 'right']),
   scale: PropTypes.oneOfType([
     PropTypes.number,

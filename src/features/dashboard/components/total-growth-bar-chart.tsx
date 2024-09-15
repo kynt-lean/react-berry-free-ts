@@ -7,8 +7,8 @@ import ApexCharts from 'apexcharts';
 import { useEffect, useState } from 'react';
 import Chart, { Props as ApexChartProps } from 'react-apexcharts';
 import { MainCard } from '../../../components/ui/cards/main-card';
+import { useGridSpacing } from '../../../themes/hook';
 import { BerryTheme } from '../../../themes/model';
-import { useGridSpacing } from '../../../themes/store';
 import { chartData } from '../chart-data/total-growth-bar-chart';
 import { SkeletonTotalGrowthBarChart } from './skeleton-total-growth-bar-chart';
 

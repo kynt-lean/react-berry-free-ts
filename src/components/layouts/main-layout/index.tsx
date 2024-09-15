@@ -5,9 +5,10 @@ import Toolbar from '@mui/material/Toolbar';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { IconChevronRight } from '@tabler/icons-react';
 import { Outlet } from 'react-router-dom';
-import { setMenuOpened, useMenuOpened } from '../../../menu/store';
+import { useSetMenuOpened } from '../../../menu/action';
+import { useMenuOpened } from '../../../menu/hook';
+import { useDrawerWidth } from '../../../themes/hook';
 import { BerryTheme } from '../../../themes/model';
-import { useDrawerWidth } from '../../../themes/store';
 import { UICustomization } from '../../ui/customization';
 import { Breadcrumbs } from '../../ui/mui-extensions/breadcrumbs';
 import { Header } from './header';
@@ -53,6 +54,7 @@ export const MainLayout = () => {
   const matchDownMd = useMediaQuery(theme.breakpoints.down('md'));
   const leftDrawerOpened = useMenuOpened();
   const drawerWidth = useDrawerWidth();
+  const { setMenuOpened } = useSetMenuOpened();
   const handleLeftDrawerToggle = () => setMenuOpened(!leftDrawerOpened);
   return (
     <Box sx={{ display: 'flex' }}>

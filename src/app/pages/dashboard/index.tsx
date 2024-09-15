@@ -7,7 +7,7 @@ import { TotalGrowthBarChart } from '../../../features/dashboard/components/tota
 import { TotalIncomeDarkCard } from '../../../features/dashboard/components/total-income-dark-card';
 import { TotalIncomeLightCard } from '../../../features/dashboard/components/total-income-light-card';
 import { TotalOrderLineChartCard } from '../../../features/dashboard/components/total-order-line-chart-card';
-import { useGridSpacing } from '../../../themes/store';
+import { useGridSpacing } from '../../../themes/hook';
 
 export const Dashboard = () => {
   const gridSpacing = useGridSpacing();

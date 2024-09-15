@@ -13,7 +13,7 @@ import Typography from '@mui/material/Typography';
 import { IconSettings } from '@tabler/icons-react';
 import { useEffect, useState } from 'react';
 import PerfectScrollbar from 'react-perfect-scrollbar';
-import { useCustomization, useGridSpacing } from '../../../themes/store';
+import { useCustomization, useGridSpacing } from '../../../themes/hook';
 import { SubCard } from '../cards/sub-card';
 import { AnimateButton } from '../mui-extensions/animate-button';
 

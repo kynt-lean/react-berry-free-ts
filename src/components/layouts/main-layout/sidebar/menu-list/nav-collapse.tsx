@@ -10,8 +10,8 @@ import { IconChevronDown, IconChevronUp } from '@tabler/icons-react';
 import { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { MenuItem } from '../../../../../menu/models';
+import { useCustomization } from '../../../../../themes/hook';
 import { BerryTheme } from '../../../../../themes/model';
-import { useCustomization } from '../../../../../themes/store';
 import { NavItem } from './nav-item';
 
 export const NavCollapse = ({ menu, level }: { menu: MenuItem; level: number }) => {

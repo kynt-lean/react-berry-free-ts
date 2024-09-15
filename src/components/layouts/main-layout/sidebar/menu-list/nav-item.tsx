@@ -9,16 +9,19 @@ import Typography from '@mui/material/Typography';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { forwardRef, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { useOpenMenuId, useSetMenuOpened } from '../../../../../menu/action';
+import { useMenuIsOpen } from '../../../../../menu/hook';
 import { MenuItem } from '../../../../../menu/models';
-import { openMenuId, setMenuOpened, useMenuIsOpen } from '../../../../../menu/store';
+import { useCustomization } from '../../../../../themes/hook';
 import { BerryTheme } from '../../../../../themes/model';
-import { useCustomization } from '../../../../../themes/store';
 
 export const NavItem = ({ item, level }: { item: MenuItem; level: number }) => {
   const theme = useTheme<BerryTheme>();
   const { pathname } = useLocation();
   const customization = useCustomization();
   const menuIsOpen = useMenuIsOpen();
+  const { openMenuId } = useOpenMenuId();
+  const { setMenuOpened } = useSetMenuOpened();
   const matchesSM = useMediaQuery(theme.breakpoints.down('lg'));
 
   const Icon = item.icon;
@@ -27,8 +30,8 @@ export const NavItem = ({ item, level }: { item: MenuItem; level: number }) => {
   ) : (
     <FiberManualRecordIcon
       sx={{
-        width: (menuIsOpen || []).findIndex(id => id === item?.id) > -1 ? 8 : 6,
-        height: (menuIsOpen || []).findIndex(id => id === item?.id) > -1 ? 8 : 6
+        width: menuIsOpen.findIndex(id => id === item?.id) > -1 ? 8 : 6,
+        height: menuIsOpen.findIndex(id => id === item?.id) > -1 ? 8 : 6
       }}
       fontSize={level > 0 ? 'inherit' : 'medium'}
     />
@@ -74,13 +77,13 @@ export const NavItem = ({ item, level }: { item: MenuItem; level: number }) => {
         py: level > 1 ? 1 : 1.25,
         pl: `${level * 24}px`
       }}
-      selected={(menuIsOpen || []).findIndex(id => id === item.id) > -1}
+      selected={menuIsOpen.findIndex(id => id === item.id) > -1}
       onClick={() => itemHandler(item.id)}
     >
       <ListItemIcon sx={{ my: 'auto', minWidth: !item?.icon ? 18 : 36 }}>{itemIcon}</ListItemIcon>
       <ListItemText
         primary={
-          <Typography variant={(menuIsOpen || []).findIndex(id => id === item.id) > -1 ? 'h5' : 'body1'} color="inherit">
+          <Typography variant={menuIsOpen.findIndex(id => id === item.id) > -1 ? 'h5' : 'body1'} color="inherit">
             {item.title}
           </Typography>
         }

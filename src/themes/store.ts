@@ -1,6 +1,5 @@
 import { injectSlice } from '@/store/reducer';
 import { createSlice, PayloadAction, WithSlice } from '@reduxjs/toolkit';
-import { useSelector } from 'react-redux';
 import { BerryThemeCustomization } from './model';
 
 const initialState: BerryThemeCustomization = {
@@ -34,16 +33,4 @@ declare module '@/store/reducer' {
   export interface LazyLoadedSlices extends WithSlice<typeof customizationSlice> {}
 }
 
-const injectedCustomizationSlice = injectSlice(customizationSlice);
-
-export const { setFontFamily, setBorderRadius } = customizationSlice.actions;
-
-const { selectCustomization, selectGridSpacing, selectDrawerWidth, selectAppDrawerWidth } = injectedCustomizationSlice.selectors;
-
-export const useCustomization = () => useSelector(selectCustomization);
-
-export const useGridSpacing = () => useSelector(selectGridSpacing);
-
-export const useDrawerWidth = () => useSelector(selectDrawerWidth);
-
-export const useAppDrawerWidth = () => useSelector(selectAppDrawerWidth);
+export const injectedCustomizationSlice = injectSlice(customizationSlice);

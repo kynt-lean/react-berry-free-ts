@@ -23,8 +23,8 @@ import { IconLogout, IconSearch, IconSettings, IconUser } from '@tabler/icons-re
 import { useEffect, useRef, useState } from 'react';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 import { useNavigate } from 'react-router-dom';
+import { useCustomization } from '../../../../themes/hook';
 import { BerryTheme } from '../../../../themes/model';
-import { useCustomization } from '../../../../themes/store';
 import { MainCard } from '../../../ui/cards/main-card';
 import { Transitions } from '../../../ui/mui-extensions/transitions';
 import { UpgradePlanCard } from './upgrade-plan-card';

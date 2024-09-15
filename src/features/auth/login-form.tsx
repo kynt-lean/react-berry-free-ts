@@ -21,8 +21,8 @@ import { Formik } from 'formik';
 import { useState } from 'react';
 import * as Yup from 'yup';
 import { AnimateButton } from '../../components/ui/mui-extensions/animate-button';
+import { useCustomization } from '../../themes/hook';
 import { BerryTheme } from '../../themes/model';
-import { useCustomization } from '../../themes/store';
 
 export const LoginForm = ({ ...others }) => {
   const theme = useTheme<BerryTheme>();

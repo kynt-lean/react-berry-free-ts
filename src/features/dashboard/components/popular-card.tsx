@@ -13,7 +13,7 @@ import MenuItem from '@mui/material/MenuItem';
 import Typography from '@mui/material/Typography';
 import React from 'react';
 import { MainCard } from '../../../components/ui/cards/main-card';
-import { useGridSpacing } from '../../../themes/store';
+import { useGridSpacing } from '../../../themes/hook';
 import { BajajAreaChartCard } from './bajaj-area-chart-card';
 import { SkeletonPopularCard } from './skeleton-popular-card';
 

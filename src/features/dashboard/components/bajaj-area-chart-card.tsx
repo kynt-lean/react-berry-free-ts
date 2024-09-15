@@ -5,8 +5,8 @@ import Typography from '@mui/material/Typography';
 import ApexCharts from 'apexcharts';
 import { useEffect } from 'react';
 import Chart, { Props as ApexChartProps } from 'react-apexcharts';
+import { useCustomization } from '../../../themes/hook';
 import { BerryTheme } from '../../../themes/model';
-import { useCustomization } from '../../../themes/store';
 import { chartData } from '../chart-data/bajaj-area-chart';
 
 export const BajajAreaChartCard = () => {

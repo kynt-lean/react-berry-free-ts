@@ -9,7 +9,7 @@ import { MainErrorFallback } from '../components/errors/main';
 import { NavigationScroll } from '../components/layouts/navigation-scroll';
 import { Loader } from '../components/ui/loader';
 import { queryConfig } from '../lib/react-query';
-import { useCustomization } from '../themes/store';
+import { useCustomization } from '../themes/hook';
 import { createBerryTheme } from '../themes/theme';
 
 type AppProviderProps = {

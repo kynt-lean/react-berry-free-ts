@@ -19,18 +19,17 @@ import Typography from '@mui/material/Typography';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { Formik } from 'formik';
 import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import * as Yup from 'yup';
 import { AnimateButton } from '../../components/ui/mui-extensions/animate-button';
-import { RootState } from '../../store/reducer';
-import { BerryTheme, BerryThemeCustomization } from '../../themes/theme';
+import { BerryTheme } from '../../themes/model';
+import { useCustomization } from '../../themes/store';
 import { strengthColor, strengthIndicator } from '../../utils/password-strength';
 
 export const RegisterForm = ({ ...others }) => {
   const theme = useTheme<BerryTheme>();
   const matchDownSM = useMediaQuery(theme.breakpoints.down('md'));
-  const customization = useSelector<RootState, BerryThemeCustomization>((state) => state.customization);
+  const customization = useCustomization();
   const [showPassword, setShowPassword] = useState(false);
   const [checked, setChecked] = useState(true);
 
@@ -182,7 +181,7 @@ export const RegisterForm = ({ ...others }) => {
                 name="password"
                 label="Password"
                 onBlur={handleBlur}
-                onChange={(e) => {
+                onChange={e => {
                   handleChange(e);
                   changePassword(e.target.value);
                 }}
@@ -229,7 +228,7 @@ export const RegisterForm = ({ ...others }) => {
               <Grid item>
                 <FormControlLabel
                   control={
-                    <Checkbox checked={checked} onChange={(event) => setChecked(event.target.checked)} name="checked" color="primary" />
+                    <Checkbox checked={checked} onChange={event => setChecked(event.target.checked)} name="checked" color="primary" />
                   }
                   label={
                     <Typography variant="subtitle1">

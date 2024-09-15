@@ -19,16 +19,15 @@ import Typography from '@mui/material/Typography';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { Formik } from 'formik';
 import { useState } from 'react';
-import { useSelector } from 'react-redux';
 import * as Yup from 'yup';
 import { AnimateButton } from '../../components/ui/mui-extensions/animate-button';
-import { RootState } from '../../store/reducer';
-import { BerryTheme, BerryThemeCustomization } from '../../themes/theme';
+import { BerryTheme } from '../../themes/model';
+import { useCustomization } from '../../themes/store';
 
 export const LoginForm = ({ ...others }) => {
   const theme = useTheme<BerryTheme>();
   const matchDownSM = useMediaQuery(theme.breakpoints.down('md'));
-  const customization = useSelector<RootState, BerryThemeCustomization>((state) => state.customization);
+  const customization = useCustomization();
   const [checked, setChecked] = useState(true);
   const googleHandler = async () => {
     console.error('Login');
@@ -169,9 +168,7 @@ export const LoginForm = ({ ...others }) => {
             </FormControl>
             <Stack direction="row" alignItems="center" justifyContent="space-between" spacing={1}>
               <FormControlLabel
-                control={
-                  <Checkbox checked={checked} onChange={(event) => setChecked(event.target.checked)} name="checked" color="primary" />
-                }
+                control={<Checkbox checked={checked} onChange={event => setChecked(event.target.checked)} name="checked" color="primary" />}
                 label="Remember me"
               />
               <Typography variant="subtitle1" color="secondary" sx={{ textDecoration: 'none', cursor: 'pointer' }}>

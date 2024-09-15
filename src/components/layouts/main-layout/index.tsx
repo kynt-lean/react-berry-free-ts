@@ -4,20 +4,18 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { IconChevronRight } from '@tabler/icons-react';
-import { useDispatch, useSelector } from 'react-redux';
 import { Outlet } from 'react-router-dom';
-import { SET_MENU } from '../../../store/actions';
-import { drawerWidth } from '../../../store/constant';
-import { RootState } from '../../../store/reducer';
-import { BerryTheme } from '../../../themes/theme';
+import { setMenuOpened, useMenuOpened } from '../../../menu/store';
+import { BerryTheme } from '../../../themes/model';
+import { useDrawerWidth } from '../../../themes/store';
 import { UICustomization } from '../../ui/customization';
 import { Breadcrumbs } from '../../ui/mui-extensions/breadcrumbs';
 import { Header } from './header';
 import { Sidebar } from './sidebar';
 
 const Main = styled('main', {
-  shouldForwardProp: (prop) => prop !== 'open' && prop !== 'theme'
-})(({ theme, open }: { theme: BerryTheme; open: boolean }) => ({
+  shouldForwardProp: prop => prop !== 'open' && prop !== 'theme' && prop !== 'drawerWidth'
+})(({ theme, open, drawerWidth }: { theme: BerryTheme; open: boolean; drawerWidth: number }) => ({
   ...theme.typography.mainContent,
   borderBottomLeftRadius: 0,
   borderBottomRightRadius: 0,
@@ -53,9 +51,9 @@ const Main = styled('main', {
 export const MainLayout = () => {
   const theme = useTheme<BerryTheme>();
   const matchDownMd = useMediaQuery(theme.breakpoints.down('md'));
-  const leftDrawerOpened = useSelector<RootState, boolean>((state) => Boolean(state.menu.opened));
-  const dispatch = useDispatch();
-  const handleLeftDrawerToggle = () => dispatch({ type: SET_MENU, opened: !leftDrawerOpened });
+  const leftDrawerOpened = useMenuOpened();
+  const drawerWidth = useDrawerWidth();
+  const handleLeftDrawerToggle = () => setMenuOpened(!leftDrawerOpened);
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
@@ -77,7 +75,7 @@ export const MainLayout = () => {
 
       <Sidebar drawerOpen={!matchDownMd ? leftDrawerOpened : !leftDrawerOpened} drawerToggle={handleLeftDrawerToggle} />
 
-      <Main theme={theme} open={leftDrawerOpened}>
+      <Main theme={theme} open={leftDrawerOpened} drawerWidth={drawerWidth}>
         <Breadcrumbs separator={IconChevronRight} icon title rightAlign />
         <Outlet />
       </Main>

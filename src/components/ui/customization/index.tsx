@@ -13,11 +13,7 @@ import Typography from '@mui/material/Typography';
 import { IconSettings } from '@tabler/icons-react';
 import { useEffect, useState } from 'react';
 import PerfectScrollbar from 'react-perfect-scrollbar';
-import { useDispatch, useSelector } from 'react-redux';
-import { SET_BORDER_RADIUS, SET_FONT_FAMILY } from '../../../store/actions';
-import { gridSpacing } from '../../../store/constant';
-import { RootState } from '../../../store/reducer';
-import { BerryThemeCustomization } from '../../../themes/theme';
+import { useCustomization, useGridSpacing } from '../../../themes/store';
 import { SubCard } from '../cards/sub-card';
 import { AnimateButton } from '../mui-extensions/animate-button';
 
@@ -27,8 +23,8 @@ function valueText(value: string | number) {
 
 export const UICustomization = () => {
   const theme = useTheme();
-  const dispatch = useDispatch();
-  const customization = useSelector<RootState, BerryThemeCustomization>((state) => state.customization);
+  const customization = useCustomization();
+  const gridSpacing = useGridSpacing();
 
   // drawer on/off
   const [open, setOpen] = useState(false);
@@ -40,8 +36,8 @@ export const UICustomization = () => {
     setBorderRadius(Array.isArray(newValue) ? newValue[0] : newValue);
   };
   useEffect(() => {
-    dispatch({ type: SET_BORDER_RADIUS, borderRadius });
-  }, [dispatch, borderRadius]);
+    setBorderRadius(borderRadius);
+  }, [borderRadius]);
   let initialFont;
   switch (customization.fontFamily) {
     case `'Inter', sans-serif`:
@@ -72,8 +68,8 @@ export const UICustomization = () => {
         newFont = `'Roboto', sans-serif`;
         break;
     }
-    dispatch({ type: SET_FONT_FAMILY, fontFamily: newFont });
-  }, [dispatch, fontFamily]);
+    setFontFamily(newFont);
+  }, [fontFamily]);
   return (
     <>
       <Tooltip title="Live Customize">
@@ -121,7 +117,7 @@ export const UICustomization = () => {
                   <RadioGroup
                     aria-label="font-family"
                     value={fontFamily}
-                    onChange={(e) => setFontFamily(e.target.value)}
+                    onChange={e => setFontFamily(e.target.value)}
                     name="row-radio-buttons-group"
                   >
                     <FormControlLabel

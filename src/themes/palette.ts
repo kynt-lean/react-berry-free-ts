@@ -1,4 +1,4 @@
-import { BerryPaletteOptions, BerryThemeOptions } from './theme';
+import { BerryPaletteOptions, BerryThemeOptions } from './model';
 
 export function createThemePalette(theme: BerryThemeOptions): BerryPaletteOptions {
   return {

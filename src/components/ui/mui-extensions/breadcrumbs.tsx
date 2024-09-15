@@ -10,11 +10,9 @@ import { SxProps, useTheme } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 import { IconChevronRight, IconTallymark1 } from '@tabler/icons-react';
 import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
-import { MenuItems } from '../../../menu/models';
-import { RootState } from '../../../store/reducer';
-import { BerryTheme } from '../../../themes/theme';
+import { useMenuItems } from '../../../menu/store';
+import { BerryTheme } from '../../../themes/model';
 
 // ==============================|| BREADCRUMBS TITLE ||============================== //
 interface BTitleProps {
@@ -104,10 +102,10 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({
 
   let customLocation = location.pathname;
 
-  const menuItems = useSelector<RootState, MenuItems>((state) => state.menu.items);
+  const menuItems = useMenuItems();
 
   useEffect(() => {
-    menuItems.forEach((menu) => {
+    menuItems.forEach(menu => {
       if (menu.type === 'group') {
         if (menu.url === customLocation) {
           setMain(menu);

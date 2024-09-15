@@ -8,19 +8,17 @@ import { useTheme } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { forwardRef, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
-import { MenuItem, MenuState } from '../../../../../menu/models';
-import { MENU_OPEN, SET_MENU } from '../../../../../store/actions';
-import { RootState } from '../../../../../store/reducer';
-import { BerryTheme, BerryThemeCustomization } from '../../../../../themes/theme';
+import { MenuItem } from '../../../../../menu/models';
+import { openMenuId, setMenuOpened, useMenuIsOpen } from '../../../../../menu/store';
+import { BerryTheme } from '../../../../../themes/model';
+import { useCustomization } from '../../../../../themes/store';
 
 export const NavItem = ({ item, level }: { item: MenuItem; level: number }) => {
   const theme = useTheme<BerryTheme>();
-  const dispatch = useDispatch();
   const { pathname } = useLocation();
-  const menu = useSelector<RootState, MenuState>((state) => state.menu);
-  const customization = useSelector<RootState, BerryThemeCustomization>((state) => state.customization);
+  const customization = useCustomization();
+  const menuIsOpen = useMenuIsOpen();
   const matchesSM = useMediaQuery(theme.breakpoints.down('lg'));
 
   const Icon = item.icon;
@@ -29,8 +27,8 @@ export const NavItem = ({ item, level }: { item: MenuItem; level: number }) => {
   ) : (
     <FiberManualRecordIcon
       sx={{
-        width: (menu.isOpen || []).findIndex((id) => id === item?.id) > -1 ? 8 : 6,
-        height: (menu.isOpen || []).findIndex((id) => id === item?.id) > -1 ? 8 : 6
+        width: (menuIsOpen || []).findIndex(id => id === item?.id) > -1 ? 8 : 6,
+        height: (menuIsOpen || []).findIndex(id => id === item?.id) > -1 ? 8 : 6
       }}
       fontSize={level > 0 ? 'inherit' : 'medium'}
     />
@@ -49,8 +47,8 @@ export const NavItem = ({ item, level }: { item: MenuItem; level: number }) => {
   }
 
   const itemHandler = (id: string) => {
-    dispatch({ type: MENU_OPEN, id });
-    if (matchesSM) dispatch({ type: SET_MENU, opened: false });
+    openMenuId(id);
+    if (matchesSM) setMenuOpened(false);
   };
 
   // active menu item on page load
@@ -58,9 +56,9 @@ export const NavItem = ({ item, level }: { item: MenuItem; level: number }) => {
     const currentIndex = document.location.pathname
       .toString()
       .split('/')
-      .findIndex((id) => id === item.id);
+      .findIndex(id => id === item.id);
     if (currentIndex > -1) {
-      dispatch({ type: MENU_OPEN, id: item.id });
+      openMenuId(item.id);
     }
   }, [pathname]);
 
@@ -76,13 +74,13 @@ export const NavItem = ({ item, level }: { item: MenuItem; level: number }) => {
         py: level > 1 ? 1 : 1.25,
         pl: `${level * 24}px`
       }}
-      selected={(menu.isOpen || []).findIndex((id) => id === item.id) > -1}
+      selected={(menuIsOpen || []).findIndex(id => id === item.id) > -1}
       onClick={() => itemHandler(item.id)}
     >
       <ListItemIcon sx={{ my: 'auto', minWidth: !item?.icon ? 18 : 36 }}>{itemIcon}</ListItemIcon>
       <ListItemText
         primary={
-          <Typography variant={(menu.isOpen || []).findIndex((id) => id === item.id) > -1 ? 'h5' : 'body1'} color="inherit">
+          <Typography variant={(menuIsOpen || []).findIndex(id => id === item.id) > -1 ? 'h5' : 'body1'} color="inherit">
             {item.title}
           </Typography>
         }

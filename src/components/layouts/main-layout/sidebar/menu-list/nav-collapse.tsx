@@ -8,16 +8,15 @@ import { useTheme } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 import { IconChevronDown, IconChevronUp } from '@tabler/icons-react';
 import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { MenuItem } from '../../../../../menu/models';
-import { RootState } from '../../../../../store/reducer';
-import { BerryTheme, BerryThemeCustomization } from '../../../../../themes/theme';
+import { BerryTheme } from '../../../../../themes/model';
+import { useCustomization } from '../../../../../themes/store';
 import { NavItem } from './nav-item';
 
 export const NavCollapse = ({ menu, level }: { menu: MenuItem; level: number }) => {
   const theme = useTheme<BerryTheme>();
-  const customization = useSelector<RootState, BerryThemeCustomization>((state) => state.customization);
+  const customization = useCustomization();
   const navigate = useNavigate();
 
   const [open, setOpen] = useState(false);
@@ -27,13 +26,13 @@ export const NavCollapse = ({ menu, level }: { menu: MenuItem; level: number }) 
     setOpen(!open);
     setSelected(!selected ? menu.id : null);
     if (menu?.id !== 'authentication') {
-      navigate((menu.children || []).find((_) => true)?.url!);
+      navigate((menu.children || []).find(_ => true)?.url!);
     }
   };
 
   const { pathname } = useLocation();
   const checkOpenForParent = (child: MenuItem[], id: string) => {
-    child.forEach((item) => {
+    child.forEach(item => {
       if (item.url === pathname) {
         setOpen(true);
         setSelected(id);
@@ -46,7 +45,7 @@ export const NavCollapse = ({ menu, level }: { menu: MenuItem; level: number }) 
     setOpen(false);
     setSelected(null);
     if (menu.children) {
-      menu.children.forEach((item) => {
+      menu.children.forEach(item => {
         if (item.children?.length) {
           checkOpenForParent(item.children, menu.id);
         }
@@ -59,7 +58,7 @@ export const NavCollapse = ({ menu, level }: { menu: MenuItem; level: number }) 
   }, [pathname, menu.children]);
 
   // menu collapse & item
-  const menus = menu.children?.map((item) => {
+  const menus = menu.children?.map(item => {
     switch (item.type) {
       case 'collapse':
         return <NavCollapse key={item.id} menu={item} level={level + 1} />;

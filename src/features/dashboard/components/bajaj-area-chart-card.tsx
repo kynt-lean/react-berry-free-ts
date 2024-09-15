@@ -5,15 +5,14 @@ import Typography from '@mui/material/Typography';
 import ApexCharts from 'apexcharts';
 import { useEffect } from 'react';
 import Chart, { Props as ApexChartProps } from 'react-apexcharts';
-import { useSelector } from 'react-redux';
-import { RootState } from '../../../store/reducer';
-import { BerryTheme, BerryThemeCustomization } from '../../../themes/theme';
+import { BerryTheme } from '../../../themes/model';
+import { useCustomization } from '../../../themes/store';
 import { chartData } from '../chart-data/bajaj-area-chart';
 
 export const BajajAreaChartCard = () => {
   const theme = useTheme<BerryTheme>();
   const orangeDark = theme.palette.secondary[800];
-  const customization = useSelector<RootState, BerryThemeCustomization>((state) => state.customization);
+  const customization = useCustomization();
   const { navType } = customization;
 
   useEffect(() => {

@@ -1,5 +1,5 @@
 import { useTheme } from '@mui/material/styles';
-import { BerryTheme } from '../../../themes/theme';
+import { BerryTheme } from '../../../themes/model';
 /**
  * if you want to use image instead of <svg> uncomment following.
  *

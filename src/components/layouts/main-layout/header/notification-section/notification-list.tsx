@@ -17,7 +17,7 @@ import { useTheme } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 import { IconBrandTelegram, IconBuildingStore, IconMailbox, IconPhoto } from '@tabler/icons-react';
 import { ReactNode } from 'react';
-import { BerryTheme } from '../../../../../themes/theme';
+import { BerryTheme } from '../../../../../themes/model';
 import { Chip } from '../../../../ui/mui-extensions/chip';
 
 const ListItemWrapper: React.FC<{ children: ReactNode }> = ({ children }) => {

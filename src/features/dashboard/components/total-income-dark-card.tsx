@@ -9,7 +9,7 @@ import ListItemText from '@mui/material/ListItemText';
 import { styled, useTheme } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 import { MainCard } from '../../../components/ui/cards/main-card';
-import { BerryTheme } from '../../../themes/theme';
+import { BerryTheme } from '../../../themes/model';
 import { TotalIncomeCard } from './total-income-card';
 
 const CardWrapper = styled(MainCard)(({ theme }: { theme: BerryTheme }) => ({

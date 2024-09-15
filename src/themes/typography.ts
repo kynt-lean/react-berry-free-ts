@@ -1,4 +1,4 @@
-import { BerryThemeOptions, BerryTypographyOptions } from './theme';
+import { BerryThemeOptions, BerryTypographyOptions } from './model';
 
 export function createThemeTypography(theme: BerryThemeOptions): BerryTypographyOptions {
   return {

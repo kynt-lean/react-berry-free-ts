@@ -9,7 +9,7 @@ import Typography from '@mui/material/Typography';
 import { useState } from 'react';
 import Chart, { Props as ApexChartProps } from 'react-apexcharts';
 import { MainCard } from '../../../components/ui/cards/main-card';
-import { BerryTheme } from '../../../themes/theme';
+import { BerryTheme } from '../../../themes/model';
 import { chartData as chartDataMonth } from '../chart-data/total-order-month-line-chart';
 import { chartData as chartDataYear } from '../chart-data/total-order-year-line-chart';
 import { SkeletonEarningCard } from './skeleton-earning-card';
@@ -88,7 +88,7 @@ export const TotalOrderLineChartCard: React.FC<TotalOrderLineChartCardProps> = (
                       variant={timeValue ? 'contained' : 'text'}
                       size="small"
                       sx={{ color: 'inherit' }}
-                      onClick={(e) => handleChangeTime(e, true)}
+                      onClick={e => handleChangeTime(e, true)}
                     >
                       Month
                     </Button>
@@ -97,7 +97,7 @@ export const TotalOrderLineChartCard: React.FC<TotalOrderLineChartCardProps> = (
                       variant={!timeValue ? 'contained' : 'text'}
                       size="small"
                       sx={{ color: 'inherit' }}
-                      onClick={(e) => handleChangeTime(e, false)}
+                      onClick={e => handleChangeTime(e, false)}
                     >
                       Year
                     </Button>

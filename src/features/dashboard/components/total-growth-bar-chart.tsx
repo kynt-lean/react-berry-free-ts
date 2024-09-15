@@ -7,8 +7,8 @@ import ApexCharts from 'apexcharts';
 import { useEffect, useState } from 'react';
 import Chart, { Props as ApexChartProps } from 'react-apexcharts';
 import { MainCard } from '../../../components/ui/cards/main-card';
-import { gridSpacing } from '../../../store/constant';
-import { BerryTheme } from '../../../themes/theme';
+import { BerryTheme } from '../../../themes/model';
+import { useGridSpacing } from '../../../themes/store';
 import { chartData } from '../chart-data/total-growth-bar-chart';
 import { SkeletonTotalGrowthBarChart } from './skeleton-total-growth-bar-chart';
 
@@ -34,6 +34,7 @@ type TotalGrowthBarChartProps = {
 export const TotalGrowthBarChart: React.FC<TotalGrowthBarChartProps> = ({ isLoading }) => {
   const [value, setValue] = useState('today');
   const theme = useTheme<BerryTheme>();
+  const gridSpacing = useGridSpacing();
   const { primary } = theme.palette.text;
   const divider = theme.palette.divider;
   const grey500 = theme.palette.grey[500];
@@ -88,8 +89,8 @@ export const TotalGrowthBarChart: React.FC<TotalGrowthBarChartProps> = ({ isLoad
                   </Grid>
                 </Grid>
                 <Grid item>
-                  <TextField id="standard-select-currency" select value={value} onChange={(e) => setValue(e.target.value)}>
-                    {status.map((option) => (
+                  <TextField id="standard-select-currency" select value={value} onChange={e => setValue(e.target.value)}>
+                    {status.map(option => (
                       <MenuItem key={option.value} value={option.value}>
                         {option.label}
                       </MenuItem>

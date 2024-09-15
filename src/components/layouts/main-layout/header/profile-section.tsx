@@ -22,17 +22,16 @@ import Typography from '@mui/material/Typography';
 import { IconLogout, IconSearch, IconSettings, IconUser } from '@tabler/icons-react';
 import { useEffect, useRef, useState } from 'react';
 import PerfectScrollbar from 'react-perfect-scrollbar';
-import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { RootState } from '../../../../store/reducer';
-import { BerryTheme, BerryThemeCustomization } from '../../../../themes/theme';
+import { BerryTheme } from '../../../../themes/model';
+import { useCustomization } from '../../../../themes/store';
 import { MainCard } from '../../../ui/cards/main-card';
 import { Transitions } from '../../../ui/mui-extensions/transitions';
 import { UpgradePlanCard } from './upgrade-plan-card';
 
 export const ProfileSection = () => {
   const theme = useTheme<BerryTheme>();
-  const customization = useSelector<RootState, BerryThemeCustomization>((state) => state.customization);
+  const customization = useCustomization();
   const navigate = useNavigate();
   const [sdm, setSdm] = useState(true);
   const [value, setValue] = useState('');
@@ -55,7 +54,7 @@ export const ProfileSection = () => {
     }
   };
   const handleToggle = () => {
-    setOpen((prevOpen) => !prevOpen);
+    setOpen(prevOpen => !prevOpen);
   };
   const prevOpen = useRef(open);
   useEffect(() => {
@@ -145,7 +144,7 @@ export const ProfileSection = () => {
                       sx={{ width: '100%', pr: 1, pl: 2, my: 2 }}
                       id="input-search-profile"
                       value={value}
-                      onChange={(e) => setValue(e.target.value)}
+                      onChange={e => setValue(e.target.value)}
                       placeholder="Search profile options"
                       startAdornment={
                         <InputAdornment position="start">
@@ -183,13 +182,7 @@ export const ProfileSection = () => {
                                   <Typography variant="subtitle1">Start DND Mode</Typography>
                                 </Grid>
                                 <Grid item>
-                                  <Switch
-                                    color="primary"
-                                    checked={sdm}
-                                    onChange={(e) => setSdm(e.target.checked)}
-                                    name="sdm"
-                                    size="small"
-                                  />
+                                  <Switch color="primary" checked={sdm} onChange={e => setSdm(e.target.checked)} name="sdm" size="small" />
                                 </Grid>
                               </Grid>
                             </Grid>
@@ -201,7 +194,7 @@ export const ProfileSection = () => {
                                 <Grid item>
                                   <Switch
                                     checked={notification}
-                                    onChange={(e) => setNotification(e.target.checked)}
+                                    onChange={e => setNotification(e.target.checked)}
                                     name="sdm"
                                     size="small"
                                   />
@@ -233,7 +226,7 @@ export const ProfileSection = () => {
                             borderRadius: `${customization.borderRadius}px`
                           }}
                           selected={selectedIndex === 0}
-                          onClick={(event) => handleListItemClick(event, 0, '#')}
+                          onClick={event => handleListItemClick(event, 0, '#')}
                         >
                           <ListItemIcon>
                             <IconSettings stroke={1.5} size="1.3rem" />
@@ -245,7 +238,7 @@ export const ProfileSection = () => {
                             borderRadius: `${customization.borderRadius}px`
                           }}
                           selected={selectedIndex === 1}
-                          onClick={(event) => handleListItemClick(event, 1, '#')}
+                          onClick={event => handleListItemClick(event, 1, '#')}
                         >
                           <ListItemIcon>
                             <IconUser stroke={1.5} size="1.3rem" />

@@ -13,7 +13,7 @@ import MenuItem from '@mui/material/MenuItem';
 import Typography from '@mui/material/Typography';
 import React from 'react';
 import { MainCard } from '../../../components/ui/cards/main-card';
-import { gridSpacing } from '../../../store/constant';
+import { useGridSpacing } from '../../../themes/store';
 import { BajajAreaChartCard } from './bajaj-area-chart-card';
 import { SkeletonPopularCard } from './skeleton-popular-card';
 
@@ -22,6 +22,7 @@ type PopularCardProps = {
 };
 
 export const PopularCard: React.FC<PopularCardProps> = ({ isLoading }) => {
+  const gridSpacing = useGridSpacing();
   const [anchorEl, setAnchorEl] = React.useState<SVGSVGElement | null>(null);
   const handleClick = (event: React.MouseEvent<SVGSVGElement>) => {
     setAnchorEl(event.currentTarget);

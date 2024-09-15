@@ -1,12 +1,10 @@
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import Grid from '@mui/material/Grid';
-import { useTheme } from '@mui/material/styles';
 import { CardSecondaryAction } from '../../../components/ui/cards/card-secondary-action';
 import { MainCard } from '../../../components/ui/cards/main-card';
 import { SubCard } from '../../../components/ui/cards/sub-card';
-import { gridSpacing } from '../../../store/constant';
-import { BerryTheme } from '../../../themes/theme';
+import { useGridSpacing } from '../../../themes/store';
 
 type ShadowBoxProps = {
   shadow: string;
@@ -32,7 +30,7 @@ const ShadowBox: React.FC<ShadowBoxProps> = ({ shadow }) => {
 };
 
 export const UtilsShadow = () => {
-  const theme = useTheme<BerryTheme>();
+  const gridSpacing = useGridSpacing();
   return (
     <MainCard title="Basic Shadow" secondary={<CardSecondaryAction link="https://next.material-ui.com/system/shadows/" />}>
       <Grid container spacing={gridSpacing}>

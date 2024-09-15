@@ -19,7 +19,7 @@ import { IconBell } from '@tabler/icons-react';
 import { useEffect, useRef, useState } from 'react';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 import { Link } from 'react-router-dom';
-import { BerryTheme } from '../../../../../themes/theme';
+import { BerryTheme } from '../../../../../themes/model';
 import { MainCard } from '../../../../ui/cards/main-card';
 import { Transitions } from '../../../../ui/mui-extensions/transitions';
 import { NotificationList } from './notification-list';
@@ -55,7 +55,7 @@ export const NotificationSection = () => {
   const anchorRef = useRef<HTMLAnchorElement>(null);
 
   const handleToggle = () => {
-    setOpen((prevOpen) => !prevOpen);
+    setOpen(prevOpen => !prevOpen);
   };
 
   const handleClose = (event: MouseEvent | TouchEvent) => {
@@ -174,7 +174,7 @@ export const NotificationSection = () => {
                                   native: true
                                 }}
                               >
-                                {status.map((option) => (
+                                {status.map(option => (
                                   <option key={option.value} value={option.value}>
                                     {option.label}
                                   </option>

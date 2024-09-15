@@ -1,12 +1,23 @@
-import { combineReducers } from 'redux';
-import { configReducer } from './config-reducer';
-import { customizationReducer } from './customization-reducer';
-import { menuReducer } from './menu-reducer';
+import { combineSlices, Slice, SliceCaseReducers, SliceSelectors } from '@reduxjs/toolkit';
+import { Reducer } from 'redux';
 
-export type RootState = ReturnType<typeof reducer>;
+export interface LazyLoadedSlices {}
 
-export const reducer = combineReducers({
-  config: configReducer,
-  menu: menuReducer,
-  customization: customizationReducer
-});
+export const rootReducer = combineSlices().withLazyLoadedSlices<LazyLoadedSlices>();
+
+export const injectSlice = <
+  State,
+  CaseReducers extends SliceCaseReducers<State>,
+  Name extends string,
+  Selectors extends SliceSelectors<State>,
+  ReducerPath extends string = Name
+>(
+  slice: Slice<State, CaseReducers, Name, ReducerPath, Selectors>
+) => slice.injectInto(rootReducer);
+
+type SliceLike<ReducerPath extends string, State> = {
+  reducerPath: ReducerPath;
+  reducer: Reducer<State>;
+};
+
+export type AnySliceLike = SliceLike<string, any>;

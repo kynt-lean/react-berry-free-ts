@@ -1,4 +1,4 @@
-import { BerryThemeOptions } from './theme';
+import { BerryThemeOptions } from './model';
 
 export function overrideComponentStyle(theme: BerryThemeOptions) {
   const bgColor = theme.colors?.grey50;

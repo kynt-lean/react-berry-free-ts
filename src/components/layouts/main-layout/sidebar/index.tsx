@@ -5,8 +5,8 @@ import Stack from '@mui/material/Stack';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { BrowserView, MobileView } from 'react-device-detect';
 import PerfectScrollbar from 'react-perfect-scrollbar';
-import { drawerWidth } from '../../../../store/constant';
-import { BerryTheme } from '../../../../themes/theme';
+import { BerryTheme } from '../../../../themes/model';
+import { useDrawerWidth } from '../../../../themes/store';
 import { Chip } from '../../../ui/mui-extensions/chip';
 import { LogoSection } from '../logo/logo-section';
 import { MenuCard } from './menu-card';
@@ -20,6 +20,7 @@ export type SidebarProps = {
 
 export const Sidebar: React.FC<SidebarProps> = ({ drawerOpen, drawerToggle, window }) => {
   const theme = useTheme<BerryTheme>();
+  const drawerWidth = useDrawerWidth();
   const matchUpMd = useMediaQuery(theme.breakpoints.up('md'));
 
   const drawer = (

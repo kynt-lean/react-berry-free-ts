@@ -11,7 +11,7 @@ import ListItemText from '@mui/material/ListItemText';
 import { useTheme } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 import { memo } from 'react';
-import { BerryTheme } from '../../../../themes/theme';
+import { BerryTheme } from '../../../../themes/model';
 
 type LinearProgressWithLabelProps = {
   value: number;

@@ -2,7 +2,7 @@ import ButtonBase from '@mui/material/ButtonBase';
 import Link from '@mui/material/Link';
 import { useTheme } from '@mui/material/styles';
 import Tooltip from '@mui/material/Tooltip';
-import { BerryTheme } from '../../../themes/theme';
+import { BerryTheme } from '../../../themes/model';
 import { Avatar } from '../mui-extensions/avatar';
 
 type CardSecondaryActionProps = {

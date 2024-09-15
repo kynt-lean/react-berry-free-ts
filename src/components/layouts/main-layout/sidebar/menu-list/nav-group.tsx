@@ -3,13 +3,13 @@ import List from '@mui/material/List';
 import { useTheme } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 import { MenuItem } from '../../../../../menu/models';
-import { BerryTheme } from '../../../../../themes/theme';
+import { BerryTheme } from '../../../../../themes/model';
 import { NavCollapse } from './nav-collapse';
 import { NavItem } from './nav-item';
 
 export const NavGroup = ({ item }: { item: MenuItem }) => {
   const theme = useTheme<BerryTheme>();
-  const items = item.children?.map((menu) => {
+  const items = item.children?.map(menu => {
     switch (menu.type) {
       case 'collapse':
         return <NavCollapse key={menu.id} menu={menu} level={1} />;

@@ -14,7 +14,7 @@ import { useTheme } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 import { useState } from 'react';
 import { MainCard } from '../../../components/ui/cards/main-card';
-import { BerryTheme } from '../../../themes/theme';
+import { BerryTheme } from '../../../themes/model';
 import { SkeletonEarningCard } from './skeleton-earning-card';
 
 type EarningCardProps = {

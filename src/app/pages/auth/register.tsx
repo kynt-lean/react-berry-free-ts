@@ -9,10 +9,10 @@ import { Logo } from '../../../components/ui/logo';
 import { AuthCardWrapper } from '../../../features/auth/auth-card-wrapper';
 import { AuthWrapper1 } from '../../../features/auth/auth-wrapper1';
 import { RegisterForm } from '../../../features/auth/register-form';
-import { BerryTheme } from '../../../themes/theme';
+import { BerryTheme } from '../../../themes/model';
 
 export const Register = () => {
-  const downMD = useMediaQuery<BerryTheme>((theme) => theme.breakpoints.down('md'));
+  const downMD = useMediaQuery<BerryTheme>(theme => theme.breakpoints.down('md'));
   return (
     <AuthWrapper1>
       <Grid container direction="column" justifyContent="flex-end" sx={{ minHeight: '100vh' }}>

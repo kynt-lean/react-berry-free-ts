@@ -11,7 +11,7 @@ import { IconAdjustmentsHorizontal, IconSearch, IconX } from '@tabler/icons-reac
 import MuiPopupState, { bindPopper, bindToggle } from 'material-ui-popup-state';
 import { PopupState } from 'material-ui-popup-state/hooks';
 import { forwardRef, useState } from 'react';
-import { BerryTheme } from '../../../../themes/theme';
+import { BerryTheme } from '../../../../themes/model';
 import { Transitions } from '../../../ui/mui-extensions/transitions';
 
 const HeaderAvatar = forwardRef(({ children, ...others }, ref) => {
@@ -49,7 +49,7 @@ const MobileSearch: React.FC<MobileSearchProps> = ({ value, setValue, popupState
     <OutlinedInput
       id="input-search-header"
       value={value}
-      onChange={(e) => setValue(e.target.value)}
+      onChange={e => setValue(e.target.value)}
       placeholder="Search"
       startAdornment={
         <InputAdornment position="start">
@@ -94,7 +94,7 @@ export const SearchSection = () => {
     <>
       <Box sx={{ display: { xs: 'block', md: 'none' } }}>
         <MuiPopupState variant="popper" popupId="demo-popup-popper">
-          {(popupState) => (
+          {popupState => (
             <>
               <Box sx={{ ml: 2 }}>
                 <HeaderAvatar {...bindToggle(popupState)}>
@@ -130,7 +130,7 @@ export const SearchSection = () => {
         <OutlinedInput
           id="input-search-header"
           value={value}
-          onChange={(e) => setValue(e.target.value)}
+          onChange={e => setValue(e.target.value)}
           placeholder="Search"
           startAdornment={
             <InputAdornment position="start">

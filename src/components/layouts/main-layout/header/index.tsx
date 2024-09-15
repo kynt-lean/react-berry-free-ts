@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 import ButtonBase from '@mui/material/ButtonBase';
 import { useTheme } from '@mui/material/styles';
 import { IconMenu2 } from '@tabler/icons-react';
-import { BerryTheme } from '../../../../themes/theme';
+import { BerryTheme } from '../../../../themes/model';
 import { LogoSection } from '../logo/logo-section';
 import { NotificationSection } from './notification-section';
 import { ProfileSection } from './profile-section';

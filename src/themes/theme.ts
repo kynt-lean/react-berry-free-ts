@@ -1,65 +1,40 @@
-import { Palette, PaletteColor, PaletteColorOptions, PaletteOptions, Theme } from '@mui/material';
-import { Typography, TypographyOptions, TypographyStyle, TypographyStyleOptions } from '@mui/material/styles/createTypography';
-import { CSSProperties } from 'react';
+import color from '@/assets/scss/_themes-vars.module.scss';
+import { createTheme, ThemeOptions } from '@mui/material/styles';
+import { overrideComponentStyle } from './component';
+import { BerryTheme, BerryThemeCustomization, BerryThemeOptions } from './model';
+import { createThemePalette } from './palette';
+import { createThemeTypography } from './typography';
 
-export interface BerryTheme extends Theme {
-  palette: BerryPalette;
-  typography: BerryTypography;
-}
-
-export interface BerryThemeOptions {
-  colors: CSSModuleClasses;
-  heading: string;
-  paper: string;
-  backgroundDefault: string;
-  background: string;
-  darkTextPrimary: string;
-  darkTextSecondary: string;
-  textDark: string;
-  menuSelected: string;
-  menuSelectedBack: string;
-  divider: string;
-  customization: BerryThemeCustomization;
-}
-
-export interface BerryThemeCustomization extends CSSProperties {
-  mode?: 'light' | 'dark';
-  navType?: any;
-}
-
-export interface BerryPalette extends Palette {
-  orange: PaletteColor;
-  dark: PaletteColor;
-  text: TypeText;
-  primary: PaletteColor & { 200: string; 800: string };
-  secondary: PaletteColor & { 200: string; 800: string };
-  success: PaletteColor & { 200: string };
-}
-
-export interface BerryPaletteOptions extends PaletteOptions {
-  orange?: PaletteColorOptions;
-  dark?: PaletteColorOptions;
-  text?: Partial<TypeText>;
-}
-
-interface TypeText {
-  primary: string;
-  secondary: string;
-  disabled: string;
-  dark: string;
-  hint: string;
-}
-
-export interface BerryTypography extends Typography, Record<BerryVariant, TypographyStyle> {}
-
-export interface BerryTypographyOptions extends TypographyOptions, Partial<Record<BerryVariant, TypographyStyleOptions>> {}
-
-type BerryVariant =
-  | 'customInput'
-  | 'mainContent'
-  | 'menuCaption'
-  | 'subMenuCaption'
-  | 'commonAvatar'
-  | 'smallAvatar'
-  | 'mediumAvatar'
-  | 'largeAvatar';
+export const createBerryTheme = (customization: BerryThemeCustomization): BerryTheme => {
+  const themeOption: BerryThemeOptions = {
+    colors: color,
+    heading: color.grey900,
+    paper: color.paper,
+    backgroundDefault: color.paper,
+    background: color.primaryLight,
+    darkTextPrimary: color.grey700,
+    darkTextSecondary: color.grey500,
+    textDark: color.grey900,
+    menuSelected: color.secondaryDark,
+    menuSelectedBack: color.secondaryLight,
+    divider: color.grey200,
+    customization
+  };
+  const themeOptions: ThemeOptions = {
+    direction: 'ltr',
+    palette: createThemePalette(themeOption),
+    mixins: {
+      toolbar: {
+        minHeight: '48px',
+        padding: '16px',
+        '@media (min-width: 600px)': {
+          minHeight: '48px'
+        }
+      }
+    },
+    typography: createThemeTypography(themeOption)
+  };
+  const themes = createTheme(themeOptions) as BerryTheme;
+  themes.components = overrideComponentStyle(themeOption);
+  return themes;
+};

@@ -11,7 +11,7 @@ import Typography from '@mui/material/Typography';
 import { IconChevronRight, IconTallymark1 } from '@tabler/icons-react';
 import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { useMenuItems } from '../../../menu/hook';
+import { useMenuItems } from '../../../menu/selectors';
 import { BerryTheme } from '../../../themes/model';
 
 // ==============================|| BREADCRUMBS TITLE ||============================== //

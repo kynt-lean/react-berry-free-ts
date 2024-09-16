@@ -1,8 +1,8 @@
 import ButtonBase from '@mui/material/ButtonBase';
 import { Link } from 'react-router-dom';
 import { useDefaultPath } from '../../../../config/store';
-import { useOpenMenuId } from '../../../../menu/action';
-import { useMenuDefaultId } from '../../../../menu/hook';
+import { useOpenMenuId } from '../../../../menu/actions';
+import { useMenuDefaultId } from '../../../../menu/selectors';
 import { Logo } from '../../../ui/logo';
 
 export const LogoSection = () => {

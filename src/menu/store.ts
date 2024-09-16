@@ -1,12 +1,8 @@
 import { injectSlice } from '@/store/reducer';
 import { createSlice, PayloadAction, WithSlice } from '@reduxjs/toolkit';
-import { authItems } from './auth';
-import { dashboardItems } from './dashboard';
-import { MenuItems } from './models';
-import { otherItems } from './other';
-import { utilitiesItems } from './utilities';
-
-const menuItems: MenuItems = [dashboardItems, authItems, utilitiesItems, otherItems];
+import { WritableDraft } from 'immer';
+import { MenuItem, MenuItems } from './models';
+import { menuItemExists, modifyMenuItemInTree } from './utils';
 
 interface MenuState {
   opened: boolean;
@@ -21,7 +17,7 @@ const initialState: MenuState = {
   opened: true,
   isOpen: [],
   defaultId: 'default',
-  items: menuItems
+  items: []
 };
 
 const menuSlice = createSlice({
@@ -33,6 +29,24 @@ const menuSlice = createSlice({
     },
     setMenuOpened: (state, action: PayloadAction<boolean>) => {
       state.opened = action.payload;
+    },
+    setMenuItems: (state, action: PayloadAction<MenuItems>) => {
+      state.items = action.payload as WritableDraft<MenuItem>[];
+    },
+    addMenuItem: (state, action: PayloadAction<MenuItem>) => {
+      const exists = menuItemExists(state.items, action.payload.id);
+      if (!exists) {
+        state.items.push(action.payload as WritableDraft<MenuItem>);
+      } else {
+        throw new Error(`Menu item with id '${action.payload.id}' already exists.`);
+      }
+    },
+    modifyMenuItem: (state, action: PayloadAction<MenuItem>) => {
+      const exists = menuItemExists(state.items, action.payload.id);
+      if (!exists) {
+        throw new Error(`Menu item with id '${action.payload.id}' is not exist.`);
+      }
+      modifyMenuItemInTree(state.items, action.payload);
     }
   },
   selectors: {

@@ -2,7 +2,7 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Grid from '@mui/material/Grid';
 import Skeleton from '@mui/material/Skeleton';
-import { useGridSpacing } from '../../../themes/hook';
+import { useGridSpacing } from '../../../themes/selectors';
 
 export const SkeletonPopularCard = () => {
   const gridSpacing = useGridSpacing();

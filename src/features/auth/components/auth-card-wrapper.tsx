@@ -1,6 +1,6 @@
 import Box from '@mui/material/Box';
 import { ReactNode } from 'react';
-import { MainCard, MainCardTypeMap } from '../../components/ui/cards/main-card';
+import { MainCard, MainCardTypeMap } from '../../../components/ui/cards/main-card';
 
 export const AuthCardWrapper: React.FC<{ children: ReactNode } & MainCardTypeMap['props']> = ({ children, ...other }) => (
   <MainCard

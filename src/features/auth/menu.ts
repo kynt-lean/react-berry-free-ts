@@ -1,10 +1,10 @@
 import { IconKey } from '@tabler/icons-react';
-import { MenuItem } from './models';
+import { MenuItem } from '../../menu/models';
 
-export const authItems: MenuItem = {
-  id: 'pages',
-  title: 'Pages',
-  caption: 'Pages Caption',
+export const authMenu: MenuItem = {
+  id: 'auth',
+  title: 'Auth Pages',
+  caption: 'Auth Pages Caption',
   type: 'group',
   children: [
     {

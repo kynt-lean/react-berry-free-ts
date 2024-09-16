@@ -1,7 +1,7 @@
 import { IconDashboard } from '@tabler/icons-react';
-import { MenuItem } from './models';
+import { MenuItem } from '../../menu/models';
 
-export const dashboardItems: MenuItem = {
+export const dashboardMenu: MenuItem = {
   id: 'dashboard',
   title: 'Dashboard',
   type: 'group',

@@ -1,7 +1,7 @@
 import { IconPalette, IconShadow, IconTypography } from '@tabler/icons-react';
-import { MenuItem } from './models';
+import { MenuItem } from '../../menu/models';
 
-export const utilitiesItems: MenuItem = {
+export const utilitiesMenu: MenuItem = {
   id: 'utilities',
   title: 'Utilities',
   type: 'group',

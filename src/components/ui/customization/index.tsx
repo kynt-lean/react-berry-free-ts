@@ -11,9 +11,11 @@ import { useTheme } from '@mui/material/styles';
 import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
 import { IconSettings } from '@tabler/icons-react';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import PerfectScrollbar from 'react-perfect-scrollbar';
-import { useCustomization, useGridSpacing } from '../../../themes/hook';
+import { useSetBorderRadius, useSetFontFamily } from '../../../themes/actions';
+import { BerryTheme } from '../../../themes/model';
+import { useCustomization, useGridSpacing } from '../../../themes/selectors';
 import { SubCard } from '../cards/sub-card';
 import { AnimateButton } from '../mui-extensions/animate-button';
 
@@ -22,54 +24,26 @@ function valueText(value: string | number) {
 }
 
 export const UICustomization = () => {
-  const theme = useTheme();
-  const customization = useCustomization();
+  const theme = useTheme<BerryTheme>();
   const gridSpacing = useGridSpacing();
+  const customization = useCustomization();
+  const { setBorderRadius } = useSetBorderRadius();
+  const { setFontFamily } = useSetFontFamily();
 
   // drawer on/off
   const [open, setOpen] = useState(false);
   const handleToggle = () => setOpen(!open);
 
   // state - border radius
-  const [borderRadius, setBorderRadius] = useState(customization.borderRadius);
   const handleBorderRadius = (event: Event, newValue: number | number[], activeThumb: number) => {
     setBorderRadius(Array.isArray(newValue) ? newValue[0] : newValue);
   };
-  useEffect(() => {
-    setBorderRadius(borderRadius);
-  }, [borderRadius]);
-  let initialFont;
-  switch (customization.fontFamily) {
-    case `'Inter', sans-serif`:
-      initialFont = 'Inter';
-      break;
-    case `'Poppins', sans-serif`:
-      initialFont = 'Poppins';
-      break;
-    case `'Roboto', sans-serif`:
-    default:
-      initialFont = 'Roboto';
-      break;
-  }
 
   // state - font family
-  const [fontFamily, setFontFamily] = useState(initialFont);
-  useEffect(() => {
-    let newFont;
-    switch (fontFamily) {
-      case 'Inter':
-        newFont = `'Inter', sans-serif`;
-        break;
-      case 'Poppins':
-        newFont = `'Poppins', sans-serif`;
-        break;
-      case 'Roboto':
-      default:
-        newFont = `'Roboto', sans-serif`;
-        break;
-    }
-    setFontFamily(newFont);
-  }, [fontFamily]);
+  const handleFontFamily = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setFontFamily(event.target.value);
+  };
+
   return (
     <>
       <Tooltip title="Live Customize">
@@ -116,12 +90,12 @@ export const UICustomization = () => {
                 <FormControl>
                   <RadioGroup
                     aria-label="font-family"
-                    value={fontFamily}
-                    onChange={e => setFontFamily(e.target.value)}
+                    value={customization.fontFamily}
+                    onChange={handleFontFamily}
                     name="row-radio-buttons-group"
                   >
                     <FormControlLabel
-                      value="Roboto"
+                      value="'Roboto', sans-serif"
                       control={<Radio />}
                       label="Roboto"
                       sx={{
@@ -132,7 +106,7 @@ export const UICustomization = () => {
                       }}
                     />
                     <FormControlLabel
-                      value="Poppins"
+                      value="'Poppins', sans-serif"
                       control={<Radio />}
                       label="Poppins"
                       sx={{
@@ -143,7 +117,7 @@ export const UICustomization = () => {
                       }}
                     />
                     <FormControlLabel
-                      value="Inter"
+                      value="'Inter', sans-serif"
                       control={<Radio />}
                       label="Inter"
                       sx={{
@@ -168,7 +142,7 @@ export const UICustomization = () => {
                   <Grid item xs>
                     <Slider
                       size="small"
-                      value={borderRadius as number}
+                      value={customization.borderRadius as number}
                       onChange={handleBorderRadius}
                       getAriaValueText={valueText}
                       valueLabelDisplay="on"

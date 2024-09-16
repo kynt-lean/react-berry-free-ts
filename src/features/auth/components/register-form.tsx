@@ -21,10 +21,10 @@ import { Formik } from 'formik';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import * as Yup from 'yup';
-import { AnimateButton } from '../../components/ui/mui-extensions/animate-button';
-import { useCustomization } from '../../themes/hook';
-import { BerryTheme } from '../../themes/model';
-import { strengthColor, strengthIndicator } from '../../utils/password-strength';
+import { AnimateButton } from '../../../components/ui/mui-extensions/animate-button';
+import { BerryTheme } from '../../../themes/model';
+import { useCustomization } from '../../../themes/selectors';
+import { strengthColor, strengthIndicator } from '../utils/password-strength';
 
 export const RegisterForm = ({ ...others }) => {
   const theme = useTheme<BerryTheme>();

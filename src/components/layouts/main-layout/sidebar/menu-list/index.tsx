@@ -1,5 +1,5 @@
 import { Typography } from '@mui/material';
-import { useMenuItems } from '../../../../../menu/hook';
+import { useMenuItems } from '../../../../../menu/selectors';
 import { NavGroup } from './nav-group';
 
 export const MenuList = () => {

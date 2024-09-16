@@ -1,13 +1,13 @@
 import StorefrontTwoToneIcon from '@mui/icons-material/StorefrontTwoTone';
 import Grid from '@mui/material/Grid';
 import { useEffect, useState } from 'react';
-import { EarningCard } from '../../../features/dashboard/components/earning-card';
-import { PopularCard } from '../../../features/dashboard/components/popular-card';
-import { TotalGrowthBarChart } from '../../../features/dashboard/components/total-growth-bar-chart';
-import { TotalIncomeDarkCard } from '../../../features/dashboard/components/total-income-dark-card';
-import { TotalIncomeLightCard } from '../../../features/dashboard/components/total-income-light-card';
-import { TotalOrderLineChartCard } from '../../../features/dashboard/components/total-order-line-chart-card';
-import { useGridSpacing } from '../../../themes/hook';
+import { useGridSpacing } from '../../../themes/selectors';
+import { EarningCard } from '../components/earning-card';
+import { PopularCard } from '../components/popular-card';
+import { TotalGrowthBarChart } from '../components/total-growth-bar-chart';
+import { TotalIncomeDarkCard } from '../components/total-income-dark-card';
+import { TotalIncomeLightCard } from '../components/total-income-light-card';
+import { TotalOrderLineChartCard } from '../components/total-order-line-chart-card';
 
 export const Dashboard = () => {
   const gridSpacing = useGridSpacing();

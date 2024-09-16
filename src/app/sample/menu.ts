@@ -1,8 +1,8 @@
 import { IconBrandChrome, IconHelp } from '@tabler/icons-react';
-import { MenuItem } from './models';
+import { MenuItem } from '../../menu/models';
 
-export const otherItems: MenuItem = {
-  id: 'sample-docs-roadmap',
+export const sampleMenu: MenuItem = {
+  id: 'sample',
   type: 'group',
   children: [
     {
@@ -14,7 +14,7 @@ export const otherItems: MenuItem = {
       breadcrumbs: false
     },
     {
-      id: 'documentation',
+      id: 'sample-documentation',
       title: 'Documentation',
       type: 'item',
       url: 'https://codedthemes.gitbook.io/berry/',

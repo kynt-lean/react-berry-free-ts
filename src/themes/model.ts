@@ -27,7 +27,6 @@ export interface BerryThemeCustomization extends CSSProperties {
   navType?: any;
   gridSpacing: number;
   drawerWidth: number;
-  appDrawerWidth: number;
 }
 
 export interface BerryPalette extends Palette {

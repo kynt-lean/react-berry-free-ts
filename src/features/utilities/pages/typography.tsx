@@ -4,7 +4,7 @@ import MuiTypography from '@mui/material/Typography';
 import { CardSecondaryAction } from '../../../components/ui/cards/card-secondary-action';
 import { MainCard } from '../../../components/ui/cards/main-card';
 import { SubCard } from '../../../components/ui/cards/sub-card';
-import { useGridSpacing } from '../../../themes/hook';
+import { useGridSpacing } from '../../../themes/selectors';
 
 export const UtilsTypography = () => {
   const gridSpacing = useGridSpacing();

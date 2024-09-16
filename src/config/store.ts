@@ -1,11 +1,8 @@
 import { createSlice, WithSlice } from '@reduxjs/toolkit';
 import { useSelector } from 'react-redux';
+import { AppConfiguration } from './models';
 
-interface BerryAppConfiguration {
-  defaultPath: string;
-}
-
-const config: BerryAppConfiguration = {
+const config: AppConfiguration = {
   defaultPath: '/dashboard/default'
 };
 

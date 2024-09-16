@@ -4,12 +4,11 @@ import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { Link } from 'react-router-dom';
-import { AuthFooter } from '../../../components/layouts/auth-layout/footer';
 import { Logo } from '../../../components/ui/logo';
-import { AuthCardWrapper } from '../../../features/auth/auth-card-wrapper';
-import { AuthWrapper1 } from '../../../features/auth/auth-wrapper1';
-import { RegisterForm } from '../../../features/auth/register-form';
 import { BerryTheme } from '../../../themes/model';
+import { AuthCardWrapper } from '../components/auth-card-wrapper';
+import { AuthWrapper1 } from '../components/auth-wrapper1';
+import { RegisterForm } from '../components/register-form';
 
 export const Register = () => {
   const downMD = useMediaQuery<BerryTheme>(theme => theme.breakpoints.down('md'));
@@ -57,9 +56,6 @@ export const Register = () => {
               </AuthCardWrapper>
             </Grid>
           </Grid>
-        </Grid>
-        <Grid item xs={12} sx={{ m: 3, mt: 1 }}>
-          <AuthFooter />
         </Grid>
       </Grid>
     </AuthWrapper1>

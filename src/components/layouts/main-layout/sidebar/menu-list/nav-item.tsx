@@ -9,11 +9,11 @@ import Typography from '@mui/material/Typography';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { forwardRef, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { useOpenMenuId, useSetMenuOpened } from '../../../../../menu/action';
-import { useMenuIsOpen } from '../../../../../menu/hook';
+import { useOpenMenuId, useSetMenuOpened } from '../../../../../menu/actions';
 import { MenuItem } from '../../../../../menu/models';
-import { useCustomization } from '../../../../../themes/hook';
+import { useMenuIsOpen } from '../../../../../menu/selectors';
 import { BerryTheme } from '../../../../../themes/model';
+import { useCustomization } from '../../../../../themes/selectors';
 
 export const NavItem = ({ item, level }: { item: MenuItem; level: number }) => {
   const theme = useTheme<BerryTheme>();

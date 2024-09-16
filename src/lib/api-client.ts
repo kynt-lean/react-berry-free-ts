@@ -16,10 +16,10 @@ export const api = Axios.create({
 
 api.interceptors.request.use(authRequestInterceptor);
 api.interceptors.response.use(
-  (response) => {
+  response => {
     return response.data;
   },
-  (error) => {
+  error => {
     const message = error.response?.data?.message || error.message;
     useNotifications.getState().addNotification({
       type: 'error',

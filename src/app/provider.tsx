@@ -10,11 +10,7 @@ import { queryConfig } from '../lib/react-query';
 import { useCustomization } from '../themes/selectors';
 import { createBerryTheme } from '../themes/theme';
 
-type AppProviderProps = {
-  children: React.ReactNode;
-};
-
-export const AppProvider = ({ children }: AppProviderProps) => {
+export const AppProvider = ({ children }: { children: React.ReactNode }) => {
   const customization = useCustomization();
   const [queryClient] = React.useState(() => new QueryClient({ defaultOptions: queryConfig }));
   return (

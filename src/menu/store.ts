@@ -34,19 +34,14 @@ const menuSlice = createSlice({
       state.items = action.payload as WritableDraft<MenuItem>[];
     },
     addMenuItem: (state, action: PayloadAction<MenuItem>) => {
-      const exists = menuItemExists(state.items, action.payload.id);
+      const exists = state.items.some(item => item.id === action.payload.id);
       if (!exists) {
         state.items.push(action.payload as WritableDraft<MenuItem>);
-      } else {
-        throw new Error(`Menu item with id '${action.payload.id}' already exists.`);
       }
     },
     modifyMenuItem: (state, action: PayloadAction<MenuItem>) => {
       const exists = menuItemExists(state.items, action.payload.id);
-      if (!exists) {
-        throw new Error(`Menu item with id '${action.payload.id}' is not exist.`);
-      }
-      modifyMenuItemInTree(state.items, action.payload);
+      if (exists) modifyMenuItemInTree(state.items, action.payload);
     }
   },
   selectors: {

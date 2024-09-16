@@ -9,7 +9,8 @@ import { NavItem } from './nav-item';
 
 export const NavGroup = ({ item }: { item: MenuItem }) => {
   const theme = useTheme<BerryTheme>();
-  const items = item.children?.map(menu => {
+  const sortedChildren = item.children?.slice().sort((a, b) => a.order - b.order);
+  const items = sortedChildren?.map(menu => {
     switch (menu.type) {
       case 'collapse':
         return <NavCollapse key={menu.id} menu={menu} level={1} />;

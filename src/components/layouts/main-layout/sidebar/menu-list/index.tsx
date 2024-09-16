@@ -4,7 +4,8 @@ import { NavGroup } from './nav-group';
 
 export const MenuList = () => {
   const menuItems = useMenuItems();
-  const navItems = menuItems.map(item => {
+  const sortedMenuItems = menuItems.slice().sort((a, b) => a.order - b.order);
+  const navItems = sortedMenuItems.map(item => {
     switch (item.type) {
       case 'group':
         return <NavGroup key={item.id} item={item} />;

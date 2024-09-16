@@ -1,6 +1,6 @@
 import ButtonBase from '@mui/material/ButtonBase';
 import { Link } from 'react-router-dom';
-import { useDefaultPath } from '../../../../config/store';
+import { useDefaultPath } from '../../../../config/selectors';
 import { useOpenMenuId } from '../../../../menu/actions';
 import { useMenuDefaultId } from '../../../../menu/selectors';
 import { Logo } from '../../../ui/logo';

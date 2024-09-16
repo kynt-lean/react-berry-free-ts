@@ -1,5 +1,4 @@
-import { createSlice, WithSlice } from '@reduxjs/toolkit';
-import { useSelector } from 'react-redux';
+import { createSlice, PayloadAction, WithSlice } from '@reduxjs/toolkit';
 import { AppConfiguration } from './models';
 
 const config: AppConfiguration = {
@@ -9,7 +8,11 @@ const config: AppConfiguration = {
 export const configSlice = createSlice({
   name: 'config',
   initialState: config,
-  reducers: {},
+  reducers: {
+    setDefaultPath: (state, action: PayloadAction<string>) => {
+      state.defaultPath = action.payload;
+    }
+  },
   selectors: {
     selectDefaultPath: state => state.defaultPath
   }
@@ -18,7 +21,3 @@ export const configSlice = createSlice({
 declare module '@/store/reducer' {
   export interface LazyLoadedSlices extends WithSlice<typeof configSlice> {}
 }
-
-const { selectDefaultPath } = configSlice.selectors;
-
-export const useDefaultPath = () => useSelector(selectDefaultPath);

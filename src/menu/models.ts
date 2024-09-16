@@ -5,9 +5,10 @@ export type MenuItems = MenuItem[];
 
 export interface MenuItem {
   id: string;
-  type: string;
   title?: string;
   caption?: string;
+  order: number;
+  type: 'group' | 'collapse' | 'item';
   url?: string;
   icon?: (props: TablerIconsProps) => JSX.Element;
   breadcrumbs?: boolean;

@@ -1,9 +1,13 @@
 import { QueryClient, useQueryClient } from '@tanstack/react-query';
 import { useMemo } from 'react';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { authPathPrefix } from '../features/auth/constants';
 import { authRoutes } from '../features/auth/routes';
+import { dashboardPathPrefix } from '../features/dashboard/constants';
 import { dashboardRoutes } from '../features/dashboard/routes';
+import { utilitiesPathPrefix } from '../features/utilities/constants';
 import { utilitiesRoutes } from '../features/utilities/routes';
+import { samplePathPrefix } from './sample/constants';
 import { sampleRoutes } from './sample/routes';
 
 export const createAppRouter = (queryClient: QueryClient) =>
@@ -16,21 +20,21 @@ export const createAppRouter = (queryClient: QueryClient) =>
       },
       children: [
         {
-          path: '/dashboard',
+          path: dashboardPathPrefix,
           children: dashboardRoutes
         },
         {
-          path: '/utils',
+          path: utilitiesPathPrefix,
           children: utilitiesRoutes
         },
         {
-          path: '/sample',
+          path: samplePathPrefix,
           children: sampleRoutes
         }
       ]
     },
     {
-      path: '/auth',
+      path: authPathPrefix,
       lazy: async () => {
         const { AuthLayout } = await import('../components/layouts/auth-layout');
         return { Component: AuthLayout };
